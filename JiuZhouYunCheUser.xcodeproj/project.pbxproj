@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1896C0471FDA2A2500166F57 /* JZUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0461FDA2A2500166F57 /* JZUserBasicInfo.m */; };
+		1896C04A1FDA2A3A00166F57 /* UtilityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0481FDA2A3A00166F57 /* UtilityHelper.m */; };
+		1896C04D1FDA2F5900166F57 /* CHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C04C1FDA2F5900166F57 /* CHTTPSessionManager.m */; };
+		1896C0501FDA328A00166F57 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C04F1FDA328A00166F57 /* NSObject+Extension.m */; };
+		1896C0531FDA39C500166F57 /* SVProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0521FDA39C500166F57 /* SVProgressHUD+Extension.m */; };
+		1896C0561FDA5E2400166F57 /* AuthCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0551FDA5E2400166F57 /* AuthCodeView.m */; };
+		1896C0791FDA655E00166F57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1896C0781FDA655E00166F57 /* libsqlite3.tbd */; };
+		1896C07B1FDA659100166F57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1896C07A1FDA657400166F57 /* CoreGraphics.framework */; };
+		1896C0B41FDA66CB00166F57 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1896C0B31FDA66C200166F57 /* SystemConfiguration.framework */; };
+		1896C0B61FDA66DF00166F57 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1896C0B51FDA66D900166F57 /* CoreTelephony.framework */; };
+		1896C0B81FDA670100166F57 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1896C0B71FDA670000166F57 /* libc++.tbd */; };
+		1896C0BA1FDA670E00166F57 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1896C0B91FDA670E00166F57 /* libz.tbd */; };
+		1896C0BC1FDA673E00166F57 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1896C0BB1FDA673600166F57 /* ImageIO.framework */; };
+		1896C0BF1FDA714500166F57 /* AppDelegate+UMSocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0BE1FDA714500166F57 /* AppDelegate+UMSocial.m */; };
 		18CC4BF61FD8ECC700155A33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4BF51FD8ECC700155A33 /* AppDelegate.m */; };
 		18CC4BFC1FD8ECC700155A33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4BFA1FD8ECC700155A33 /* Main.storyboard */; };
 		18CC4BFE1FD8ECC700155A33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4BFD1FD8ECC700155A33 /* Assets.xcassets */; };
@@ -21,6 +35,17 @@
 		18CC4C561FD9087200155A33 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C521FD9087200155A33 /* UIBarButtonItem+Extension.m */; };
 		18CC4C571FD9087200155A33 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C531FD9087200155A33 /* UIView+Extension.m */; };
 		18CC4C5B1FD90F9300155A33 /* JZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C5A1FD90F9300155A33 /* JZBaseViewController.m */; };
+		18CC4C5E1FD920C700155A33 /* JZSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C5D1FD920C700155A33 /* JZSearchViewController.m */; };
+		18CC4C611FD9216E00155A33 /* JZQuoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C601FD9216E00155A33 /* JZQuoteViewController.m */; };
+		18CC4C641FD9218600155A33 /* JZDepartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C631FD9218600155A33 /* JZDepartViewController.m */; };
+		18CC4C671FD9219500155A33 /* JZOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C661FD9219500155A33 /* JZOrderViewController.m */; };
+		18CC4C6A1FD921AF00155A33 /* JZScrambleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C691FD921AF00155A33 /* JZScrambleViewController.m */; };
+		18CC4C791FD9259500155A33 /* JZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C771FD9259500155A33 /* JZLoginViewController.m */; };
+		18CC4C7A1FD9259500155A33 /* JZLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4C781FD9259500155A33 /* JZLoginViewController.xib */; };
+		18CC4C7E1FD925AA00155A33 /* JZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C7C1FD925AA00155A33 /* JZRegisterViewController.m */; };
+		18CC4C7F1FD925AA00155A33 /* JZRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4C7D1FD925AA00155A33 /* JZRegisterViewController.xib */; };
+		18CC4C831FD925C100155A33 /* JZForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C811FD925C100155A33 /* JZForgetPwdViewController.m */; };
+		18CC4C841FD925C100155A33 /* JZForgetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4C821FD925C100155A33 /* JZForgetPwdViewController.xib */; };
 		BD8A5D621CFA94AC91E9279A /* libPods-JiuZhouYunCheUser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BD74A5EF0AA18B9A8C2482 /* libPods-JiuZhouYunCheUser.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +67,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1896C0451FDA2A2500166F57 /* JZUserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZUserBasicInfo.h; sourceTree = "<group>"; };
+		1896C0461FDA2A2500166F57 /* JZUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZUserBasicInfo.m; sourceTree = "<group>"; };
+		1896C0481FDA2A3A00166F57 /* UtilityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityHelper.m; sourceTree = "<group>"; };
+		1896C0491FDA2A3A00166F57 /* UtilityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityHelper.h; sourceTree = "<group>"; };
+		1896C04B1FDA2F5900166F57 /* CHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTTPSessionManager.h; sourceTree = "<group>"; };
+		1896C04C1FDA2F5900166F57 /* CHTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTTPSessionManager.m; sourceTree = "<group>"; };
+		1896C04E1FDA328A00166F57 /* NSObject+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extension.h"; sourceTree = "<group>"; };
+		1896C04F1FDA328A00166F57 /* NSObject+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
+		1896C0511FDA39C500166F57 /* SVProgressHUD+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD+Extension.h"; sourceTree = "<group>"; };
+		1896C0521FDA39C500166F57 /* SVProgressHUD+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD+Extension.m"; sourceTree = "<group>"; };
+		1896C0541FDA5E2400166F57 /* AuthCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthCodeView.h; sourceTree = "<group>"; };
+		1896C0551FDA5E2400166F57 /* AuthCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthCodeView.m; sourceTree = "<group>"; };
+		1896C0781FDA655E00166F57 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		1896C07A1FDA657400166F57 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1896C0B31FDA66C200166F57 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1896C0B51FDA66D900166F57 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1896C0B71FDA670000166F57 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		1896C0B91FDA670E00166F57 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1896C0BB1FDA673600166F57 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		1896C0BD1FDA714500166F57 /* AppDelegate+UMSocial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+UMSocial.h"; sourceTree = "<group>"; };
+		1896C0BE1FDA714500166F57 /* AppDelegate+UMSocial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UMSocial.m"; sourceTree = "<group>"; };
 		18CC4BF11FD8ECC600155A33 /* JiuZhouYunCheUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiuZhouYunCheUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CC4BF41FD8ECC700155A33 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18CC4BF51FD8ECC700155A33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,6 +117,25 @@
 		18CC4C581FD9088200155A33 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18CC4C591FD90F9300155A33 /* JZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZBaseViewController.h; sourceTree = "<group>"; };
 		18CC4C5A1FD90F9300155A33 /* JZBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZBaseViewController.m; sourceTree = "<group>"; };
+		18CC4C5C1FD920C700155A33 /* JZSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZSearchViewController.h; sourceTree = "<group>"; };
+		18CC4C5D1FD920C700155A33 /* JZSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZSearchViewController.m; sourceTree = "<group>"; };
+		18CC4C5F1FD9216E00155A33 /* JZQuoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZQuoteViewController.h; sourceTree = "<group>"; };
+		18CC4C601FD9216E00155A33 /* JZQuoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZQuoteViewController.m; sourceTree = "<group>"; };
+		18CC4C621FD9218600155A33 /* JZDepartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZDepartViewController.h; sourceTree = "<group>"; };
+		18CC4C631FD9218600155A33 /* JZDepartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZDepartViewController.m; sourceTree = "<group>"; };
+		18CC4C651FD9219500155A33 /* JZOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZOrderViewController.h; sourceTree = "<group>"; };
+		18CC4C661FD9219500155A33 /* JZOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZOrderViewController.m; sourceTree = "<group>"; };
+		18CC4C681FD921AF00155A33 /* JZScrambleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZScrambleViewController.h; sourceTree = "<group>"; };
+		18CC4C691FD921AF00155A33 /* JZScrambleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZScrambleViewController.m; sourceTree = "<group>"; };
+		18CC4C761FD9259500155A33 /* JZLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZLoginViewController.h; sourceTree = "<group>"; };
+		18CC4C771FD9259500155A33 /* JZLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZLoginViewController.m; sourceTree = "<group>"; };
+		18CC4C781FD9259500155A33 /* JZLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZLoginViewController.xib; sourceTree = "<group>"; };
+		18CC4C7B1FD925AA00155A33 /* JZRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZRegisterViewController.h; sourceTree = "<group>"; };
+		18CC4C7C1FD925AA00155A33 /* JZRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZRegisterViewController.m; sourceTree = "<group>"; };
+		18CC4C7D1FD925AA00155A33 /* JZRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZRegisterViewController.xib; sourceTree = "<group>"; };
+		18CC4C801FD925C100155A33 /* JZForgetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZForgetPwdViewController.h; sourceTree = "<group>"; };
+		18CC4C811FD925C100155A33 /* JZForgetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZForgetPwdViewController.m; sourceTree = "<group>"; };
+		18CC4C821FD925C100155A33 /* JZForgetPwdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZForgetPwdViewController.xib; sourceTree = "<group>"; };
 		92B8CD629E13078531C3DF98 /* Pods-JiuZhouYunCheUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiuZhouYunCheUser.release.xcconfig"; path = "Pods/Target Support Files/Pods-JiuZhouYunCheUser/Pods-JiuZhouYunCheUser.release.xcconfig"; sourceTree = "<group>"; };
 		AD3DDC336223008F138D6896 /* Pods-JiuZhouYunCheUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiuZhouYunCheUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JiuZhouYunCheUser/Pods-JiuZhouYunCheUser.debug.xcconfig"; sourceTree = "<group>"; };
 		F4BD74A5EF0AA18B9A8C2482 /* libPods-JiuZhouYunCheUser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiuZhouYunCheUser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +146,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1896C0BC1FDA673E00166F57 /* ImageIO.framework in Frameworks */,
+				1896C0B61FDA66DF00166F57 /* CoreTelephony.framework in Frameworks */,
+				1896C0B41FDA66CB00166F57 /* SystemConfiguration.framework in Frameworks */,
+				1896C0B81FDA670100166F57 /* libc++.tbd in Frameworks */,
+				1896C07B1FDA659100166F57 /* CoreGraphics.framework in Frameworks */,
+				1896C0BA1FDA670E00166F57 /* libz.tbd in Frameworks */,
+				1896C0791FDA655E00166F57 /* libsqlite3.tbd in Frameworks */,
 				BD8A5D621CFA94AC91E9279A /* libPods-JiuZhouYunCheUser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +235,15 @@
 				18CC4C2B1FD8F25500155A33 /* JZTabBarController.m */,
 				18CC4C591FD90F9300155A33 /* JZBaseViewController.h */,
 				18CC4C5A1FD90F9300155A33 /* JZBaseViewController.m */,
+				18CC4C761FD9259500155A33 /* JZLoginViewController.h */,
+				18CC4C771FD9259500155A33 /* JZLoginViewController.m */,
+				18CC4C781FD9259500155A33 /* JZLoginViewController.xib */,
+				18CC4C7B1FD925AA00155A33 /* JZRegisterViewController.h */,
+				18CC4C7C1FD925AA00155A33 /* JZRegisterViewController.m */,
+				18CC4C7D1FD925AA00155A33 /* JZRegisterViewController.xib */,
+				18CC4C801FD925C100155A33 /* JZForgetPwdViewController.h */,
+				18CC4C811FD925C100155A33 /* JZForgetPwdViewController.m */,
+				18CC4C821FD925C100155A33 /* JZForgetPwdViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +251,14 @@
 		18CC4C2D1FD8F25500155A33 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1896C0541FDA5E2400166F57 /* AuthCodeView.h */,
+				1896C0551FDA5E2400166F57 /* AuthCodeView.m */,
+				1896C0491FDA2A3A00166F57 /* UtilityHelper.h */,
+				1896C0481FDA2A3A00166F57 /* UtilityHelper.m */,
+				1896C0451FDA2A2500166F57 /* JZUserBasicInfo.h */,
+				1896C0461FDA2A2500166F57 /* JZUserBasicInfo.m */,
+				1896C04B1FDA2F5900166F57 /* CHTTPSessionManager.h */,
+				1896C04C1FDA2F5900166F57 /* CHTTPSessionManager.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +271,8 @@
 				18CC4C311FD8F25600155A33 /* Catagory */,
 				18CC4BF41FD8ECC700155A33 /* AppDelegate.h */,
 				18CC4BF51FD8ECC700155A33 /* AppDelegate.m */,
+				1896C0BD1FDA714500166F57 /* AppDelegate+UMSocial.h */,
+				1896C0BE1FDA714500166F57 /* AppDelegate+UMSocial.m */,
 				18CC4C581FD9088200155A33 /* PrefixHeader.pch */,
 				18CC4C031FD8ECC700155A33 /* main.m */,
 			);
@@ -199,6 +290,10 @@
 				18CC4C4D1FD9087100155A33 /* UITextField+Extension.m */,
 				18CC4C4F1FD9087100155A33 /* UIView+Extension.h */,
 				18CC4C531FD9087200155A33 /* UIView+Extension.m */,
+				1896C04E1FDA328A00166F57 /* NSObject+Extension.h */,
+				1896C04F1FDA328A00166F57 /* NSObject+Extension.m */,
+				1896C0511FDA39C500166F57 /* SVProgressHUD+Extension.h */,
+				1896C0521FDA39C500166F57 /* SVProgressHUD+Extension.m */,
 			);
 			path = Catagory;
 			sourceTree = "<group>";
@@ -229,6 +324,8 @@
 		18CC4C351FD8F25600155A33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18CC4C621FD9218600155A33 /* JZDepartViewController.h */,
+				18CC4C631FD9218600155A33 /* JZDepartViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +357,8 @@
 		18CC4C391FD8F25600155A33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18CC4C651FD9219500155A33 /* JZOrderViewController.h */,
+				18CC4C661FD9219500155A33 /* JZOrderViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +390,8 @@
 		18CC4C3D1FD8F25600155A33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18CC4C5F1FD9216E00155A33 /* JZQuoteViewController.h */,
+				18CC4C601FD9216E00155A33 /* JZQuoteViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -322,6 +423,8 @@
 		18CC4C411FD8F25600155A33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18CC4C681FD921AF00155A33 /* JZScrambleViewController.h */,
+				18CC4C691FD921AF00155A33 /* JZScrambleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +456,8 @@
 		18CC4C451FD8F25600155A33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18CC4C5C1FD920C700155A33 /* JZSearchViewController.h */,
+				18CC4C5D1FD920C700155A33 /* JZSearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -374,6 +479,13 @@
 		2E4C0C5C7AD6C4BB8669405A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1896C0BB1FDA673600166F57 /* ImageIO.framework */,
+				1896C0B91FDA670E00166F57 /* libz.tbd */,
+				1896C0B71FDA670000166F57 /* libc++.tbd */,
+				1896C0B51FDA66D900166F57 /* CoreTelephony.framework */,
+				1896C0B31FDA66C200166F57 /* SystemConfiguration.framework */,
+				1896C07A1FDA657400166F57 /* CoreGraphics.framework */,
+				1896C0781FDA655E00166F57 /* libsqlite3.tbd */,
 				F4BD74A5EF0AA18B9A8C2482 /* libPods-JiuZhouYunCheUser.a */,
 			);
 			name = Frameworks;
@@ -497,9 +609,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CC4C7F1FD925AA00155A33 /* JZRegisterViewController.xib in Resources */,
 				18CC4C011FD8ECC700155A33 /* LaunchScreen.storyboard in Resources */,
 				18CC4BFE1FD8ECC700155A33 /* Assets.xcassets in Resources */,
+				18CC4C7A1FD9259500155A33 /* JZLoginViewController.xib in Resources */,
 				18CC4BFC1FD8ECC700155A33 /* Main.storyboard in Resources */,
+				18CC4C841FD925C100155A33 /* JZForgetPwdViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +677,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-JiuZhouYunCheUser/Pods-JiuZhouYunCheUser-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -579,15 +696,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CC4C5E1FD920C700155A33 /* JZSearchViewController.m in Sources */,
+				18CC4C791FD9259500155A33 /* JZLoginViewController.m in Sources */,
 				18CC4C541FD9087200155A33 /* NSString+Extension.m in Sources */,
 				18CC4C561FD9087200155A33 /* UIBarButtonItem+Extension.m in Sources */,
+				18CC4C611FD9216E00155A33 /* JZQuoteViewController.m in Sources */,
+				1896C0501FDA328A00166F57 /* NSObject+Extension.m in Sources */,
 				18CC4C041FD8ECC700155A33 /* main.m in Sources */,
+				1896C04D1FDA2F5900166F57 /* CHTTPSessionManager.m in Sources */,
 				18CC4C491FD8F25600155A33 /* JZTabBarController.m in Sources */,
+				18CC4C641FD9218600155A33 /* JZDepartViewController.m in Sources */,
+				1896C04A1FDA2A3A00166F57 /* UtilityHelper.m in Sources */,
+				18CC4C831FD925C100155A33 /* JZForgetPwdViewController.m in Sources */,
+				18CC4C671FD9219500155A33 /* JZOrderViewController.m in Sources */,
 				18CC4BF61FD8ECC700155A33 /* AppDelegate.m in Sources */,
+				18CC4C6A1FD921AF00155A33 /* JZScrambleViewController.m in Sources */,
 				18CC4C481FD8F25600155A33 /* JZNavigationController.m in Sources */,
+				1896C0561FDA5E2400166F57 /* AuthCodeView.m in Sources */,
 				18CC4C571FD9087200155A33 /* UIView+Extension.m in Sources */,
+				1896C0531FDA39C500166F57 /* SVProgressHUD+Extension.m in Sources */,
+				18CC4C7E1FD925AA00155A33 /* JZRegisterViewController.m in Sources */,
 				18CC4C551FD9087200155A33 /* UITextField+Extension.m in Sources */,
+				1896C0BF1FDA714500166F57 /* AppDelegate+UMSocial.m in Sources */,
 				18CC4C5B1FD90F9300155A33 /* JZBaseViewController.m in Sources */,
+				1896C0471FDA2A2500166F57 /* JZUserBasicInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,10 +886,26 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HRY736VCB7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/UMSocialUI",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/QQ/QQSDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JiuZhouYunCheUser/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = JiuZhouYunCheUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/UniqueId",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/Sina/SinaSDK",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/WeChat/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hensghiwangluo.www.JiuZhouYunCheUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -772,10 +920,26 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HRY736VCB7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/UMSocialUI",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/QQ/QQSDK",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JiuZhouYunCheUser/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = JiuZhouYunCheUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/UniqueId",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/Sina/SinaSDK",
+					"$(PROJECT_DIR)/JiuZhouYunCheUser/Classes/Other/Catagory/UMSocial/SocialLibraries/WeChat/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hensghiwangluo.www.JiuZhouYunCheUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
