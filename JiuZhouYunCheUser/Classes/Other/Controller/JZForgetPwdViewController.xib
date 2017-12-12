@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JZForgetPwdViewController">
             <connections>
+                <outlet property="codeBtn" destination="Yvx-D4-cWx" id="Pyx-gs-GD7"/>
                 <outlet property="codeTextField" destination="CVD-4G-e6x" id="blW-MJ-gVT"/>
                 <outlet property="phoneTextField" destination="aSd-Zc-cjm" id="eHW-Ms-owB"/>
                 <outlet property="pwdTextField" destination="o6J-qH-nVw" id="7jj-wb-qNX"/>
@@ -56,7 +57,7 @@
                                         <constraint firstAttribute="height" constant="22" id="iP9-xX-ske"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSd-Zc-cjm" userLabel="用户名">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aSd-Zc-cjm" userLabel="用户名">
                                     <rect key="frame" x="66" y="10" width="239" height="26"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -102,7 +103,7 @@
                                         <constraint firstAttribute="width" constant="1" id="U0m-4j-Nww"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CVD-4G-e6x" userLabel="输入密码">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CVD-4G-e6x" userLabel="输入密码">
                                     <rect key="frame" x="66" y="10" width="159" height="26"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -164,11 +165,11 @@
                                         <constraint firstAttribute="width" constant="1" id="ghI-To-LQo"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6J-qH-nVw" userLabel="图形验证码">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="o6J-qH-nVw" userLabel="图形验证码">
                                     <rect key="frame" x="66" y="10" width="239" height="26"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
                             <constraints>

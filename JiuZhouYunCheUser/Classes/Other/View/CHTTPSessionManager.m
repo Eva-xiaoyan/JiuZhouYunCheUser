@@ -18,7 +18,6 @@
         self.requestSerializer = [AFJSONRequestSerializer serializer];
     }
     return self;
-
 }
 
 @end

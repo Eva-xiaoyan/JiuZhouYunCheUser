@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *QQBtn;
 @property (weak, nonatomic) IBOutlet UIView *thirdLoginView;
 @property (nonatomic, strong) CHTTPSessionManager *manager;
-
 @property(nonatomic,strong)NSDictionary *dic;
 
 @end
@@ -78,11 +77,15 @@
 
 -(void)getLoginNetworkRequest
 {
-    NSString *str = @"http://m.jiuzhouyunche.com/iosuser/login/login_ ios/";
+    // 取消所有的请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    NSString *str = @"http://m.jiuzhouyunche.com/iosuser/login/login_ios/";
     //请求参数
     NSDictionary *parameters = @{@"nickname" : _userNameTextField.text,
                                  @"pwd" : _pwdTextField.text};
-    [_manager POST:str parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    
+    [self.manager POST:str parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
          self.dic = dic;
@@ -151,7 +154,7 @@
                                          @"openId" : response.openid,
                                          @"nickname" : response.name,
                                          @"avatar" : response.iconurl,
-                                         @"unionid" : response.unionId
+                                         @"unionid" : response.uid
                                          };
             [_manager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -169,13 +172,13 @@
         if(!error) {
             UMSocialUserInfoResponse *response = result;
             
-            NSString *urlString = @"http://m.jiuzhouyunche.com/iosuser/login/login_ios_wx/";
+            NSString *urlString = @"http://m.jiuzhouyunche.com/iosuser/login/login_ios_qq/";
             NSDictionary *parameters = @{
                                          @"type" : @"qq",
                                          @"openId" : response.openid,
                                          @"nickname" : response.name,
                                          @"avatar" : response.iconurl,
-                                         @"unionid" : response.openid
+                                         @"unionid" : response.uid
                                          };
             [_manager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

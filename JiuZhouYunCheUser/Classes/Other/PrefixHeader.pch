@@ -51,6 +51,9 @@
 #define KScreenW [UIScreen mainScreen].bounds.size.width
 #define KScreenH [UIScreen mainScreen].bounds.size.height
 
+//字符串容错宏
+#define SFSTR(string) string == nil?@"":string
+
 /*** 颜色 ***/
 #define CColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
 #define CColor(r, g, b) CColorA((r), (g), (b), 255)

@@ -27,6 +27,36 @@
     
     return isMatch;
 }
+// 检测昵称
++ (BOOL)checkUserName:(NSString *) username
+{
+    NSString *pattern = @"[0-9A-Za-z]{6,20}$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:username];
+    
+    return isMatch;
+}
+
+//计算带行间距文字的高度
++ (CGFloat)getHeightWithLableSpacing:(CGFloat)spacing Width:(CGFloat)width text:(NSString *)text fontSize:(CGFloat)fontSize numberOfLines:(NSInteger)numberOfLines
+{
+    NSMutableParagraphStyle * newParagraph = [[NSMutableParagraphStyle alloc] init];
+    NSDictionary * attributeDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontSize],NSFontAttributeName,newParagraph,NSParagraphStyleAttributeName,nil];
+    CGSize newSize = [text boundingRectWithSize:CGSizeMake(width,fontSize*3) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:attributeDic context:nil].size;
+    if (newSize.height > fontSize*1.5) {
+        UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 10)];
+        NSMutableAttributedString *newAttText = [[NSMutableAttributedString alloc] initWithString:SFSTR(text)];
+        [newParagraph setLineSpacing:spacing];
+        [newAttText addAttribute:NSParagraphStyleAttributeName value:newParagraph range:NSMakeRange(0, [SFSTR(text) length])];
+        newLabel.attributedText = newAttText;
+        newLabel.font = [UIFont systemFontOfSize:fontSize];
+        newLabel.numberOfLines = numberOfLines;
+        [newLabel sizeToFit];
+        newSize = newLabel.frame.size;
+    }
+    
+    return newSize.height;
+}
 
 
 
