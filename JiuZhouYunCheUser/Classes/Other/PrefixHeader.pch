@@ -51,6 +51,13 @@
 #define KScreenW [UIScreen mainScreen].bounds.size.width
 #define KScreenH [UIScreen mainScreen].bounds.size.height
 
+/*** 测试地址 ***/
+#define TESTSERVER @"http://test.jiuzhouyunche.com/iosuser"
+#define HOMESERVER @"http://test.jiuzhouyunche.com/index/index1"
+//正式接口
+//#define TESTSERVER @"http://m.jiuzhouyunche.com/iosuser"
+//#define HOMESERVER @"http://m.jiuzhouyunche.com/index/index1"
+
 //字符串容错宏
 #define SFSTR(string) string == nil?@"":string
 

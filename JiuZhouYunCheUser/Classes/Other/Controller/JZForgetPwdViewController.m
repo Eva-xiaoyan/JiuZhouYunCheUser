@@ -11,13 +11,18 @@
 #import "AppDelegate.h"
 #import "JZTabBarController.h"
 #import "UtilityHelper.h"
+#define KEYHEIGHT (iPhone5 ? 10.f : 0.f)
 
 @interface JZForgetPwdViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
-@property (weak, nonatomic) IBOutlet UIButton *codeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *finishBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
+
 @property (nonatomic, strong) CHTTPSessionManager *manager;
 @property(nonatomic,strong)NSDictionary *dic;
 @property (nonatomic, assign) int countFlag; // 验证码倒计时相关
@@ -26,33 +31,76 @@
 @end
 
 @implementation JZForgetPwdViewController
-#pragma mark - 懒加载
-- (CHTTPSessionManager *)manager
-{
-    if (!_manager) {
-        _manager = [CHTTPSessionManager manager];
-    }
-    return _manager;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.hidden = YES;
+    [self setNotificationShow];
+    [self otherSetting];
 }
 
-#pragma mark - 按钮点击
+#pragma mark - 通知和其他设置
+-(void)setNotificationShow
+{
+    //通知键盘出现
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
+}
+
+-(void)otherSetting
+{
+    if (iPhoneX) {
+        self.topLayoutConstraint.constant = 40;
+    }
+    if (_phoneTextField.text.length == 0) {
+        _getCodeBtn.enabled = NO;
+    }
+    if (_phoneTextField.text.length == 0 && _codeTextField.text.length == 0 && _pwdTextField.text.length == 0) {
+        _finishBtn.enabled = NO;
+    }
+}
+
+//键盘将要出现
+- (void)handleKeyboardWillShow:(NSNotification *)paramNotification
+{
+    self.view.transform = CGAffineTransformMakeTranslation(0, -KEYHEIGHT);
+}
+
+//键盘将要隐藏
+- (void)handleKeyboardWillHide:(NSNotification *)paramNotification
+{
+    self.view.transform = CGAffineTransformIdentity;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    [self.view endEditing:YES];
+}
+
+#pragma mark - UITextFieldDelegate
+//改变字符
+-(void)textFieldDidChange
+{
+    self.getCodeBtn.enabled = (self.phoneTextField.text.length != 0);
+    self.finishBtn.enabled = (self.phoneTextField.text.length != 0 && self.codeTextField.text.length != 0 && self.pwdTextField.text.length != 0);
+}
+
+
+- (IBAction)back {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 //获取验证码
-- (IBAction)getCodeClick {
-    // 取消所有的请求
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+- (IBAction)getCodeClick:(UIButton *)sender {
     if ([UtilityHelper isValidatePhone:self.phoneTextField.text]) {
-        //请求参数
-        NSString *str = @"http://m.jiuzhouyunche.com/iosuser/login/send_message_app/";
-        //请求参数
-        NSDictionary *parameters = @{@"telephone" : _phoneTextField.text};
-        [self.manager POST:str parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *str = [NSString stringWithFormat:@"%@/login/send_message_app/",TESTSERVER];
+        // 请求参数
+        NSDictionary *parameters = @{ @"telephone" : self.phoneTextField.text};
+        [_manager POST:str parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             self.dic = dic;
-            
             NSInteger code = 0;
             if ([dic[@"code"] isSafeObj]) {
                 code = [self.dic[@"code"] integerValue];
@@ -63,9 +111,11 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeTimeShow) userInfo:nil repeats:YES];
                 });
-            }else{
+            }
+            else{
                 [SVProgressHUD showError:self.dic[@"msg"]];
             }
+            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [SVProgressHUD showError:@"获取验证码失败"];
         }];
@@ -74,54 +124,92 @@
         [SVProgressHUD showError:@"输入手机号错误"];
     }
 }
+
 //60秒倒计时
 - (void)changeTimeShow
 {
     if (self.countFlag>1) {
         self.countFlag--;
-        self.codeBtn.userInteractionEnabled = NO;
-        [self.codeBtn setTitle:[NSString stringWithFormat:@"重新发送(%d)",self.countFlag] forState:UIControlStateNormal];
+        self.getCodeBtn.userInteractionEnabled = NO;
+        [self.getCodeBtn setTitle:[NSString stringWithFormat:@"重新发送(%d)",self.countFlag] forState:UIControlStateNormal];
     }else{
         [self.timer invalidate];
-        self.codeBtn.userInteractionEnabled = YES;
-        [self.codeBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
+        self.getCodeBtn.userInteractionEnabled = YES;
+        [self.getCodeBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
     }
 }
 
-//确认
-- (IBAction)makeSureClick {
-    
-    NSString *str = @"http://www.jiuzhouyunche.com/express/index/ios_forgetpass";
+- (IBAction)finishBtnClick:(id)sender {
+    if ([self checkAllOfTextField]) {
+        [self getNetWorkRequest];
+    }
+}
+
+-(void)getNetWorkRequest
+{
+    NSString *str = [NSString stringWithFormat:@"%@/login/forget_phone_ios/",TESTSERVER];
     //请求参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"telephone"] = self.phoneTextField.text;
     parameters[@"password"] = self.pwdTextField.text;
     parameters[@"code"] = self.codeTextField.text;
-    
-    [self.manager POST:str parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+   
+    [_manager POST:str parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
          self.dic = dic;
-         
          NSInteger code = 0;
          code = [self.dic[@"code"] integerValue];
          if(code == 1) {
              [SVProgressHUD showSuccess:[self.dic[@"msg"] safeString]];
-             [self.navigationController popToRootViewControllerAnimated:YES];
-         }else {
+             [self.navigationController popViewControllerAnimated:YES];
+         }
+         else {
              [SVProgressHUD showError:self.dic[@"msg"]];
          }
+         
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
          [SVProgressHUD showError:@"请求失败"];
      }];
-    
-    
-}
-//返回登录页按钮
-- (IBAction)loginClick {
-     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+-(BOOL)checkAllOfTextField
+{
+    if ([UtilityHelper isValidatePhone:_phoneTextField.text] == NO){
+        [SVProgressHUD showError:@"输入手机号错误"];
+        return NO;
+    }
+    if (_codeTextField.text.length != 4) {
+        [SVProgressHUD showError:@"验证码格式错误"];
+        return NO;
+    }
+    if (![UtilityHelper checkPassword:_pwdTextField.text]) {
+        [SVProgressHUD showError:@"密码格式错误，长度为6~20位，支持字母、数字及其组合"];
+        return NO;
+    }
+    return YES;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+//移除通知
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+}
+#pragma mark - 懒加载
+- (CHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [CHTTPSessionManager manager];
+    }
+    return _manager;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

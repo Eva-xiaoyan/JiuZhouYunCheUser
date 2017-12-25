@@ -40,12 +40,17 @@
 		18CC4C641FD9218600155A33 /* JZDepartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C631FD9218600155A33 /* JZDepartViewController.m */; };
 		18CC4C671FD9219500155A33 /* JZOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C661FD9219500155A33 /* JZOrderViewController.m */; };
 		18CC4C6A1FD921AF00155A33 /* JZScrambleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C691FD921AF00155A33 /* JZScrambleViewController.m */; };
-		18CC4C791FD9259500155A33 /* JZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C771FD9259500155A33 /* JZLoginViewController.m */; };
-		18CC4C7A1FD9259500155A33 /* JZLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4C781FD9259500155A33 /* JZLoginViewController.xib */; };
-		18CC4C7E1FD925AA00155A33 /* JZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C7C1FD925AA00155A33 /* JZRegisterViewController.m */; };
-		18CC4C7F1FD925AA00155A33 /* JZRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4C7D1FD925AA00155A33 /* JZRegisterViewController.xib */; };
-		18CC4C831FD925C100155A33 /* JZForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC4C811FD925C100155A33 /* JZForgetPwdViewController.m */; };
-		18CC4C841FD925C100155A33 /* JZForgetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC4C821FD925C100155A33 /* JZForgetPwdViewController.xib */; };
+		9D3111D61FF0992800A6521E /* JZGuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3111D51FF0992800A6521E /* JZGuidePageViewController.m */; };
+		9D3111DA1FF09F7B00A6521E /* JZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3111D81FF09F7A00A6521E /* JZRegisterViewController.m */; };
+		9D3111DB1FF09F7B00A6521E /* JZRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3111D91FF09F7B00A6521E /* JZRegisterViewController.xib */; };
+		9D3111DF1FF09F9C00A6521E /* JZLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3111DD1FF09F9C00A6521E /* JZLoginViewController.xib */; };
+		9D3111E01FF09F9C00A6521E /* JZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3111DE1FF09F9C00A6521E /* JZLoginViewController.m */; };
+		9D3111E41FF09FAF00A6521E /* JZSetNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3111E21FF09FAF00A6521E /* JZSetNameViewController.xib */; };
+		9D3111E51FF09FAF00A6521E /* JZSetNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3111E31FF09FAF00A6521E /* JZSetNameViewController.m */; };
+		9D3111E91FF09FCA00A6521E /* JZForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3111E71FF09FCA00A6521E /* JZForgetPwdViewController.m */; };
+		9D3111EA1FF09FCA00A6521E /* JZForgetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3111E81FF09FCA00A6521E /* JZForgetPwdViewController.xib */; };
+		9D3111EE1FF09FD700A6521E /* protocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 9D3111EB1FF09FD600A6521E /* protocol.html */; };
+		9D3111EF1FF09FD700A6521E /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3111EC1FF09FD700A6521E /* ProtocolViewController.m */; };
 		BD8A5D621CFA94AC91E9279A /* libPods-JiuZhouYunCheUser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BD74A5EF0AA18B9A8C2482 /* libPods-JiuZhouYunCheUser.a */; };
 /* End PBXBuildFile section */
 
@@ -127,16 +132,24 @@
 		18CC4C661FD9219500155A33 /* JZOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZOrderViewController.m; sourceTree = "<group>"; };
 		18CC4C681FD921AF00155A33 /* JZScrambleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZScrambleViewController.h; sourceTree = "<group>"; };
 		18CC4C691FD921AF00155A33 /* JZScrambleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZScrambleViewController.m; sourceTree = "<group>"; };
-		18CC4C761FD9259500155A33 /* JZLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZLoginViewController.h; sourceTree = "<group>"; };
-		18CC4C771FD9259500155A33 /* JZLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZLoginViewController.m; sourceTree = "<group>"; };
-		18CC4C781FD9259500155A33 /* JZLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZLoginViewController.xib; sourceTree = "<group>"; };
-		18CC4C7B1FD925AA00155A33 /* JZRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZRegisterViewController.h; sourceTree = "<group>"; };
-		18CC4C7C1FD925AA00155A33 /* JZRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZRegisterViewController.m; sourceTree = "<group>"; };
-		18CC4C7D1FD925AA00155A33 /* JZRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZRegisterViewController.xib; sourceTree = "<group>"; };
-		18CC4C801FD925C100155A33 /* JZForgetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZForgetPwdViewController.h; sourceTree = "<group>"; };
-		18CC4C811FD925C100155A33 /* JZForgetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZForgetPwdViewController.m; sourceTree = "<group>"; };
-		18CC4C821FD925C100155A33 /* JZForgetPwdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZForgetPwdViewController.xib; sourceTree = "<group>"; };
 		92B8CD629E13078531C3DF98 /* Pods-JiuZhouYunCheUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiuZhouYunCheUser.release.xcconfig"; path = "Pods/Target Support Files/Pods-JiuZhouYunCheUser/Pods-JiuZhouYunCheUser.release.xcconfig"; sourceTree = "<group>"; };
+		9D3111D41FF0992800A6521E /* JZGuidePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZGuidePageViewController.h; sourceTree = "<group>"; };
+		9D3111D51FF0992800A6521E /* JZGuidePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZGuidePageViewController.m; sourceTree = "<group>"; };
+		9D3111D71FF09F7A00A6521E /* JZRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZRegisterViewController.h; sourceTree = "<group>"; };
+		9D3111D81FF09F7A00A6521E /* JZRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZRegisterViewController.m; sourceTree = "<group>"; };
+		9D3111D91FF09F7B00A6521E /* JZRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZRegisterViewController.xib; sourceTree = "<group>"; };
+		9D3111DC1FF09F9C00A6521E /* JZLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZLoginViewController.h; sourceTree = "<group>"; };
+		9D3111DD1FF09F9C00A6521E /* JZLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZLoginViewController.xib; sourceTree = "<group>"; };
+		9D3111DE1FF09F9C00A6521E /* JZLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLoginViewController.m; sourceTree = "<group>"; };
+		9D3111E11FF09FAF00A6521E /* JZSetNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZSetNameViewController.h; sourceTree = "<group>"; };
+		9D3111E21FF09FAF00A6521E /* JZSetNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZSetNameViewController.xib; sourceTree = "<group>"; };
+		9D3111E31FF09FAF00A6521E /* JZSetNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZSetNameViewController.m; sourceTree = "<group>"; };
+		9D3111E61FF09FCA00A6521E /* JZForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZForgetPwdViewController.h; sourceTree = "<group>"; };
+		9D3111E71FF09FCA00A6521E /* JZForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZForgetPwdViewController.m; sourceTree = "<group>"; };
+		9D3111E81FF09FCA00A6521E /* JZForgetPwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZForgetPwdViewController.xib; sourceTree = "<group>"; };
+		9D3111EB1FF09FD600A6521E /* protocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = protocol.html; sourceTree = "<group>"; };
+		9D3111EC1FF09FD700A6521E /* ProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
+		9D3111ED1FF09FD700A6521E /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
 		AD3DDC336223008F138D6896 /* Pods-JiuZhouYunCheUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiuZhouYunCheUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JiuZhouYunCheUser/Pods-JiuZhouYunCheUser.debug.xcconfig"; sourceTree = "<group>"; };
 		F4BD74A5EF0AA18B9A8C2482 /* libPods-JiuZhouYunCheUser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiuZhouYunCheUser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -235,15 +248,21 @@
 				18CC4C2B1FD8F25500155A33 /* JZTabBarController.m */,
 				18CC4C591FD90F9300155A33 /* JZBaseViewController.h */,
 				18CC4C5A1FD90F9300155A33 /* JZBaseViewController.m */,
-				18CC4C761FD9259500155A33 /* JZLoginViewController.h */,
-				18CC4C771FD9259500155A33 /* JZLoginViewController.m */,
-				18CC4C781FD9259500155A33 /* JZLoginViewController.xib */,
-				18CC4C7B1FD925AA00155A33 /* JZRegisterViewController.h */,
-				18CC4C7C1FD925AA00155A33 /* JZRegisterViewController.m */,
-				18CC4C7D1FD925AA00155A33 /* JZRegisterViewController.xib */,
-				18CC4C801FD925C100155A33 /* JZForgetPwdViewController.h */,
-				18CC4C811FD925C100155A33 /* JZForgetPwdViewController.m */,
-				18CC4C821FD925C100155A33 /* JZForgetPwdViewController.xib */,
+				9D3111D71FF09F7A00A6521E /* JZRegisterViewController.h */,
+				9D3111D81FF09F7A00A6521E /* JZRegisterViewController.m */,
+				9D3111D91FF09F7B00A6521E /* JZRegisterViewController.xib */,
+				9D3111DC1FF09F9C00A6521E /* JZLoginViewController.h */,
+				9D3111DE1FF09F9C00A6521E /* JZLoginViewController.m */,
+				9D3111DD1FF09F9C00A6521E /* JZLoginViewController.xib */,
+				9D3111E11FF09FAF00A6521E /* JZSetNameViewController.h */,
+				9D3111E31FF09FAF00A6521E /* JZSetNameViewController.m */,
+				9D3111E21FF09FAF00A6521E /* JZSetNameViewController.xib */,
+				9D3111E61FF09FCA00A6521E /* JZForgetPwdViewController.h */,
+				9D3111E71FF09FCA00A6521E /* JZForgetPwdViewController.m */,
+				9D3111E81FF09FCA00A6521E /* JZForgetPwdViewController.xib */,
+				9D3111EB1FF09FD600A6521E /* protocol.html */,
+				9D3111ED1FF09FD700A6521E /* ProtocolViewController.h */,
+				9D3111EC1FF09FD700A6521E /* ProtocolViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +278,8 @@
 				1896C0461FDA2A2500166F57 /* JZUserBasicInfo.m */,
 				1896C04B1FDA2F5900166F57 /* CHTTPSessionManager.h */,
 				1896C04C1FDA2F5900166F57 /* CHTTPSessionManager.m */,
+				9D3111D41FF0992800A6521E /* JZGuidePageViewController.h */,
+				9D3111D51FF0992800A6521E /* JZGuidePageViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -565,6 +586,7 @@
 		18CC4BE91FD8ECC600155A33 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JZ;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "曹晓燕";
 				TargetAttributes = {
@@ -609,12 +631,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18CC4C7F1FD925AA00155A33 /* JZRegisterViewController.xib in Resources */,
 				18CC4C011FD8ECC700155A33 /* LaunchScreen.storyboard in Resources */,
+				9D3111DF1FF09F9C00A6521E /* JZLoginViewController.xib in Resources */,
+				9D3111EE1FF09FD700A6521E /* protocol.html in Resources */,
+				9D3111DB1FF09F7B00A6521E /* JZRegisterViewController.xib in Resources */,
 				18CC4BFE1FD8ECC700155A33 /* Assets.xcassets in Resources */,
-				18CC4C7A1FD9259500155A33 /* JZLoginViewController.xib in Resources */,
+				9D3111E41FF09FAF00A6521E /* JZSetNameViewController.xib in Resources */,
+				9D3111EA1FF09FCA00A6521E /* JZForgetPwdViewController.xib in Resources */,
 				18CC4BFC1FD8ECC700155A33 /* Main.storyboard in Resources */,
-				18CC4C841FD925C100155A33 /* JZForgetPwdViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +721,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18CC4C5E1FD920C700155A33 /* JZSearchViewController.m in Sources */,
-				18CC4C791FD9259500155A33 /* JZLoginViewController.m in Sources */,
 				18CC4C541FD9087200155A33 /* NSString+Extension.m in Sources */,
 				18CC4C561FD9087200155A33 /* UIBarButtonItem+Extension.m in Sources */,
 				18CC4C611FD9216E00155A33 /* JZQuoteViewController.m in Sources */,
@@ -706,19 +729,23 @@
 				1896C04D1FDA2F5900166F57 /* CHTTPSessionManager.m in Sources */,
 				18CC4C491FD8F25600155A33 /* JZTabBarController.m in Sources */,
 				18CC4C641FD9218600155A33 /* JZDepartViewController.m in Sources */,
+				9D3111EF1FF09FD700A6521E /* ProtocolViewController.m in Sources */,
+				9D3111E91FF09FCA00A6521E /* JZForgetPwdViewController.m in Sources */,
 				1896C04A1FDA2A3A00166F57 /* UtilityHelper.m in Sources */,
-				18CC4C831FD925C100155A33 /* JZForgetPwdViewController.m in Sources */,
 				18CC4C671FD9219500155A33 /* JZOrderViewController.m in Sources */,
+				9D3111D61FF0992800A6521E /* JZGuidePageViewController.m in Sources */,
 				18CC4BF61FD8ECC700155A33 /* AppDelegate.m in Sources */,
 				18CC4C6A1FD921AF00155A33 /* JZScrambleViewController.m in Sources */,
 				18CC4C481FD8F25600155A33 /* JZNavigationController.m in Sources */,
 				1896C0561FDA5E2400166F57 /* AuthCodeView.m in Sources */,
 				18CC4C571FD9087200155A33 /* UIView+Extension.m in Sources */,
 				1896C0531FDA39C500166F57 /* SVProgressHUD+Extension.m in Sources */,
-				18CC4C7E1FD925AA00155A33 /* JZRegisterViewController.m in Sources */,
 				18CC4C551FD9087200155A33 /* UITextField+Extension.m in Sources */,
+				9D3111E51FF09FAF00A6521E /* JZSetNameViewController.m in Sources */,
 				1896C0BF1FDA714500166F57 /* AppDelegate+UMSocial.m in Sources */,
+				9D3111DA1FF09F7B00A6521E /* JZRegisterViewController.m in Sources */,
 				18CC4C5B1FD90F9300155A33 /* JZBaseViewController.m in Sources */,
+				9D3111E01FF09F9C00A6521E /* JZLoginViewController.m in Sources */,
 				1896C0471FDA2A2500166F57 /* JZUserBasicInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
