@@ -15,8 +15,14 @@
 @implementation JZScrambleViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
+    [self basicSetting];
+}
+
+-(void)basicSetting
+{
+    self.navigationItem.title = @"抢空位";    
+    self.view.backgroundColor = CColor(203, 203, 203);
 }
 
 - (void)didReceiveMemoryWarning {

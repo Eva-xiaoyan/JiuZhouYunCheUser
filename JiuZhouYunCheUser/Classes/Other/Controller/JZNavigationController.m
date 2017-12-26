@@ -18,8 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.interactivePopGestureRecognizer.delegate = self;
-    
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.barTintColor = CColor(253, 128, 40);
+    //设置状态栏和导航栏的颜色都为白色
+    //    self.navigationBar.barStyle = UIBarStyleBlack;
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+//    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:20]}];
+    //导航栏设置图片
+    //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"image01"] forBarMetrics:UIBarMetricsDefault];
+
 }
 
 /**

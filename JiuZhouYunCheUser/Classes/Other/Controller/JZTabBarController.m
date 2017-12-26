@@ -7,6 +7,12 @@
 //
 
 #import "JZTabBarController.h"
+#import "JZNavigationController.h"
+#import "JZSearchViewController.h"
+#import "JZQuoteViewController.h"
+#import "JZDepartViewController.h"
+#import "JZOrderViewController.h"
+#import "JZScrambleViewController.h"
 
 @interface JZTabBarController ()
 
@@ -31,26 +37,27 @@
     //普通状态下的文字属性
     NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
     normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:14];
-    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    normalAttrs[NSForegroundColorAttributeName] = CColor(146, 146, 146);
     [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
     //选中状态下的文字属性
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    selectedAttrs[NSForegroundColorAttributeName] = CColor(253, 128, 40);
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
-    
 }
 /**
  *  添加子控制器
  */
 - (void)setupChildViewControllers
 {
-//    [self setupOneChildViewController:[[CNavigationController alloc]initWithRootViewController:[[CEssenceViewController alloc] init]] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
-//
-//    [self setupOneChildViewController:[[CNavigationController alloc]initWithRootViewController:[[CNewViewController alloc]init]] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
-//
-//    [self setupOneChildViewController:[[CNavigationController alloc]initWithRootViewController:[[CFriendTrendViewController alloc]init]] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
-//
-//    [self setupOneChildViewController:[[CNavigationController alloc]initWithRootViewController:[[CMeViewController alloc]init]] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    [self setupOneChildViewController:[[JZNavigationController alloc]initWithRootViewController:[[JZSearchViewController alloc] init]] title:@"查询" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
+
+    [self setupOneChildViewController:[[JZNavigationController alloc]initWithRootViewController:[[JZQuoteViewController alloc]init]] title:@"报价" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
+
+    [self setupOneChildViewController:[[JZNavigationController alloc]initWithRootViewController:[[JZDepartViewController alloc]init]] title:@"发车" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
+
+    [self setupOneChildViewController:[[JZNavigationController alloc]initWithRootViewController:[[JZOrderViewController alloc]init]] title:@"订单" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    
+    [self setupOneChildViewController:[[JZNavigationController alloc]initWithRootViewController:[[JZScrambleViewController alloc]init]] title:@"抢位" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
     
 }
 /**

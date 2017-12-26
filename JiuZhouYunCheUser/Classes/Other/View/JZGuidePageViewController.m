@@ -57,7 +57,7 @@
     scrollView.bounces = NO;
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.contentSize = CGSizeMake(KScreenW * 4, KScreenH);
+    scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 4, SCREEN_HEIGHT);
     scrollView.delegate = self;
     [self.view addSubview:scrollView];
     

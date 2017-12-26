@@ -16,8 +16,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self basicSetting];
+}
+
+-(void)basicSetting
+{
+    self.navigationItem.title = @"运价查询";
+    
+    self.view.backgroundColor = CColor(203, 203, 203);
+}
+
+
+
+-(void)setupTopTitle
+{
+    
+    
+    
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
