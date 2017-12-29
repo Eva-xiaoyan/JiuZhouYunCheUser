@@ -16,19 +16,20 @@
 
 @interface JZRegisterViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *wechatBtn;
-@property (weak, nonatomic) IBOutlet UIButton *qqButton;
-@property (weak, nonatomic) IBOutlet UIView *otherLoginView;
+@property(nonatomic,strong)UITextField *phoneTextField;
+@property(nonatomic,strong)UITextField *codeTextField;
+@property(nonatomic,strong)UIButton *codeButton;
+@property(nonatomic,strong)UIButton *codeLoginButton;
+@property(nonatomic,strong)UIButton *toWuliu;
+@property(nonatomic,strong)UIButton *pushToPwdLogin;
 
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
-@property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *codeLoginBtn;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLineLayoutConstraint;
+//第三方登录
+@property(nonatomic,strong)UIButton *wechatBtn;
+@property(nonatomic,strong)UIButton *qqButton;
+@property(nonatomic,strong)UIView *otherLoginView;
 
 @property(nonatomic,strong)NSDictionary *dic;
-@property (nonatomic, assign) int countFlag;           // 验证码倒计时相关
+@property (nonatomic, assign) int countFlag;  // 验证码倒计时相关
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) CHTTPSessionManager *manager;
 
@@ -46,8 +47,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setNotificationShow];
+    [self createViewFrame];
     [self setTheThirdLoginHiddenAndOtherSetting];
+    [self textFieldDidChange];
 }
 
 #pragma mark - 第三方登录
@@ -66,15 +70,8 @@
     if(_wechatBtn.isHidden && _qqButton.isHidden) {
         _otherLoginView.hidden = YES;
     }
-    if (_phoneTextField.text.length == 0) {
-        _getCodeBtn.enabled = NO;
-    }
-    if (_phoneTextField.text.length == 0 && _codeTextField.text.length == 0) {
-        _codeLoginBtn.enabled = NO;
-    }
-    if (iPhoneX) {
-        self.bottomLineLayoutConstraint.constant = 55;
-    }
+    [_wechatBtn addTarget:self action:@selector(wechatLoginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_qqButton addTarget:self action:@selector(qqLoginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - 通知
@@ -85,7 +82,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
-- (IBAction)qqLoginButtonClicked:(UIButton *)sender {
+- (void)qqLoginButtonClicked:(UIButton *)sender {
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:self completion:^(id result, NSError *error) {
         if(!error) {
             [SVProgressHUD showSuccess:@"登录中..."];
@@ -128,7 +125,7 @@
     }];
 }
 
-- (IBAction)wechatLoginButtonClicked:(UIButton *)sender {
+- (void)wechatLoginButtonClicked:(UIButton *)sender {
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(id result, NSError *error) {
         if(!error) {
             [SVProgressHUD showSuccess:@"登录中..."];
@@ -187,21 +184,71 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
-    
     [self.view endEditing:YES];
 }
 
-#pragma mark - UITextFieldDelegate
+#pragma mark - 创建frame
+-(void)createViewFrame
+{
+    //图标
+    UIImageView *iconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logoIcon"]];
+    CGFloat iconX = (SCREEN_WIDTH - SCREEN_SCALE(88)) / 2;
+    CGFloat iconY = SCREEN_SCALE(88);
+    CGFloat iconW = SCREEN_SCALE(88);
+    CGFloat iconH = iconW;
+    iconView.frame = CGRectMake(iconX, iconY, iconW, iconH);
+    [self.view addSubview:iconView];
+    //手机号View
+    UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SCALE(36), CGRectGetMaxY(iconView.frame)+SCREEN_SCALE(18), SCREEN_WIDTH - SCREEN_SCALE(36)*2, SCREEN_SCALE(128))];
+    [self.view addSubview:backgroundView];
+    
+    //输入手机号
+    UIView *phoneView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, backgroundView.c_width, backgroundView.c_height / 2)];
+    [backgroundView addSubview:phoneView];
+    UITextField *phoneTextField = [CFastAddsubView addTextField:CGRectMake(0, phoneView.c_height - 36, phoneView.c_width, 30) font:15 placeholder:@"请输入手机号" placeholderColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] keyboardType:UIKeyboardTypeNumberPad borderStyle:UITextBorderStyleNone textAlignment:NSTextAlignmentLeft superView:phoneView];
+    self.phoneTextField = phoneTextField;
+    [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:phoneView];
+    
+    //输入验证码
+    UIView *codeView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(phoneView.frame), backgroundView.c_width, backgroundView.c_height / 2)];
+    [backgroundView addSubview:codeView];
+    UITextField *codeTextField = [CFastAddsubView addTextField:CGRectMake(0, phoneView.c_height - 36, phoneView.c_width - 110, 30) font:15 placeholder:@"请输入验证码" placeholderColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] keyboardType:UIKeyboardTypeNumberPad borderStyle:UITextBorderStyleNone textAlignment:NSTextAlignmentLeft superView:codeView];
+    self.codeTextField = codeTextField;
+    UIButton *codeButton = [CFastAddsubView addbuttonWithRect:CGRectMake(codeView.c_width - 100, codeView.c_height - 36, 100, 30) LabelText:@"获取验证码" TextFont:15 NormalTextColor:CColor(255, 147, 51) highLightTextColor:nil  disabledColor:CGrayColor(153) SuperView:codeView buttonTarget:self Action:@selector(getCodeButtonClicked)];
+    self.codeButton = codeButton;
+    [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:codeView];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //第三方登录
+    CGFloat thridViewY = self.view.c_height - SCREEN_SCALE(46) - SCREEN_SCALE(75);
+    UIView *thirdView = [[UIView alloc]initWithFrame:CGRectMake(0, thridViewY, self.view.c_width, SCREEN_SCALE(75))];
+    [self.view addSubview:thirdView];
+    
+    CGSize labelSize = [CFastAddsubView getWordRealSizeWithFont:[UIFont systemFontOfSize:12] WithConstrainedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) WithStr:@"其他方式登录"];
+    UILabel *label = [CFastAddsubView addLabelWithFrame:CGRectMake((thirdView.c_width - labelSize.width) / 2, 0, labelSize.width, labelSize.height) text:@"其他方式登录" textColor:@"#BEBEBE" textAlignment:NSTextAlignmentCenter fontSize:12 superView:thirdView];
+    
+    
+    
+    
+    
+}
+
 //改变按钮的点击状态
 -(void)textFieldDidChange
 {
-    self.getCodeBtn.enabled = (self.phoneTextField.text.length != 0);
-    self.codeLoginBtn.enabled = (self.phoneTextField.text.length != 0 && self.codeTextField.text.length != 0);
+    self.codeButton.enabled = (self.phoneTextField.text.length != 0);
+    self.codeLoginButton.enabled = (self.phoneTextField.text.length != 0 && self.codeTextField.text.length != 0);
 }
 
-
 //获取验证码
-- (IBAction)getCodeButtonClicked {
+- (void)getCodeButtonClicked {
     if ([UtilityHelper isValidatePhone:self.phoneTextField.text]) {
         NSString *str = [NSString stringWithFormat:@"%@/login/send_message_app/",TESTSERVER];
         //请求参数
@@ -245,17 +292,17 @@
 {
     if (self.countFlag>1) {
         self.countFlag--;
-        self.getCodeBtn.userInteractionEnabled = NO;
-        [self.getCodeBtn setTitle:[NSString stringWithFormat:@"重新发送(%d)",self.countFlag] forState:UIControlStateNormal];
+        self.codeButton.userInteractionEnabled = NO;
+        [self.codeButton setTitle:[NSString stringWithFormat:@"重新发送(%d)",self.countFlag] forState:UIControlStateNormal];
     }else{
         [self.timer invalidate];
-        self.getCodeBtn.userInteractionEnabled = YES;
-        [self.getCodeBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
+        self.codeButton.userInteractionEnabled = YES;
+        [self.codeButton setTitle:@"重发验证码" forState:UIControlStateNormal];
     }
 }
 
 //验证码登录
-- (IBAction)codeLoginButtonClicked {
+- (void)codeLoginButtonClicked {
     if ([self verificationBeforeRequest]) {
         [self getNetWorkRequest];
     }
@@ -317,14 +364,17 @@
     [self.view endEditing:YES];
 }
 
+
+
+
 //下载客户端
-- (IBAction)gotoAppStore {
+- (void)gotoAppStore {
     NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/%E4%B9%9D%E5%B7%9E%E8%BF%90%E8%BD%A6%E7%89%A9%E6%B5%81%E7%89%88/id1318609107?mt=8"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 //密码登录
-- (IBAction)pwdLoginClick {
+- (void)pwdLoginClick {
     JZLoginViewController *loginVC = [[JZLoginViewController alloc]init];
     [self.navigationController pushViewController:loginVC animated:YES];
 }

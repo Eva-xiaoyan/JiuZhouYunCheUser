@@ -15,13 +15,12 @@
 
 @interface JZForgetPwdViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (strong, nonatomic) UITextField *phoneTextField;
+@property (strong, nonatomic) UITextField *codeTextField;
 
-@property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
-@property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *finishBtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
+@property (strong, nonatomic) UITextField *pwdTextField;
+@property (strong, nonatomic) UIButton *getCodeBtn;
+@property (strong, nonatomic) UIButton *finishBtn;
 
 @property (nonatomic, strong) CHTTPSessionManager *manager;
 @property(nonatomic,strong)NSDictionary *dic;
@@ -50,9 +49,7 @@
 
 -(void)otherSetting
 {
-    if (iPhoneX) {
-        self.topLayoutConstraint.constant = 40;
-    }
+    
     if (_phoneTextField.text.length == 0) {
         _getCodeBtn.enabled = NO;
     }
@@ -88,12 +85,12 @@
 }
 
 
-- (IBAction)back {
+- (void)back {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 //获取验证码
-- (IBAction)getCodeClick:(UIButton *)sender {
+- (void)getCodeClick:(UIButton *)sender {
     if ([UtilityHelper isValidatePhone:self.phoneTextField.text]) {
         NSString *str = [NSString stringWithFormat:@"%@/login/send_message_app/",TESTSERVER];
         // 请求参数
@@ -139,7 +136,7 @@
     }
 }
 
-- (IBAction)finishBtnClick:(id)sender {
+- (void)finishBtnClick:(id)sender {
     if ([self checkAllOfTextField]) {
         [self getNetWorkRequest];
     }

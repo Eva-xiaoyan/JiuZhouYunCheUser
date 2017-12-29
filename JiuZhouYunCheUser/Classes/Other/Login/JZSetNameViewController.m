@@ -16,10 +16,10 @@
 
 @interface JZSetNameViewController ()<UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
-@property (weak, nonatomic) IBOutlet UIButton *chooseBtn;
-@property (weak, nonatomic) IBOutlet UIButton *finishBtn;
+@property (strong, nonatomic) UITextField *userNameTextField;
+@property (strong, nonatomic) UITextField *pwdTextField;
+@property (strong, nonatomic) UIButton *chooseBtn;
+@property (strong, nonatomic) UIButton *finishBtn;
 @property(nonatomic,strong)NSDictionary *dic;
 
 @end
@@ -77,12 +77,12 @@
     self.finishBtn.enabled = (self.userNameTextField.text.length != 0 && self.pwdTextField.text.length != 0);
 }
 //查看协议
-- (IBAction)protocolBtnClick {
+- (void)protocolBtnClick {
     ProtocolViewController *protocolVC = [[ProtocolViewController alloc]init];
     [self presentViewController:protocolVC animated:YES completion:nil];
 }
 //完成按钮
-- (IBAction)finishClick:(id)sender {
+- (void)finishClick:(id)sender {
     if ([self verificationBeforeRequest]) {
         [self getNetWorkRequest];
     }
@@ -149,11 +149,11 @@
 }
 
 //返回按钮
-- (IBAction)back {
+- (void)back {
     [self.navigationController popViewControllerAnimated:YES];
 }
 //选择协议
-- (IBAction)chooseBtnClick {
+- (void)chooseBtnClick {
     self.chooseBtn.selected = !self.chooseBtn.selected;
 }
 

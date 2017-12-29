@@ -21,6 +21,8 @@
 #import "NSObject+Extension.h"
 #import "SVProgressHUD+Extension.h"
 #import "CHTTPSessionManager.h"
+#import "CFastAddsubView.h"
+#import "UtilityHelper.h"
 
 #import <UMSocialCore/UMSocialCore.h>
 #import <AFNetworking.h>
@@ -40,7 +42,13 @@
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define FONT_SIZE(size) [UIFont systemFontOfSize:(size-1)]
-
+//适配问题
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPad)
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_WIDTH_SCALE SCREEN_WIDTH/375.0
+//#define SCREEN_HEIGHT_SCALE SCREEN_HEIGHT/667.0
+#define SCREEN_SCALE(value) ((value)/375.0*SCREEN_WIDTH)
 
 // 状态栏高度
 #define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
@@ -50,10 +58,7 @@
 #define TAB_BAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
 // home indicator
 #define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
-//屏幕宽度和高度
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-#define SCREEN_SCALE [UIScreen mainScreen].bounds.size.width/320
+
 /*** 测试地址 ***/
 #define TESTSERVER @"http://test.jiuzhouyunche.com/iosuser"
 #define HOMESERVER @"http://test.jiuzhouyunche.com/index/index1"

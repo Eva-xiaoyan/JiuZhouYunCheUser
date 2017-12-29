@@ -19,9 +19,9 @@
 
 @interface JZLoginViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *loginPasswordBtn;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
+@property (strong, nonatomic) UIButton *loginPasswordBtn;
+@property (strong, nonatomic) UITextField *phoneTextField;
+@property (strong, nonatomic) UITextField *pwdTextField;
 
 
 
@@ -58,7 +58,7 @@
 }
 
 //密码登录
-- (IBAction)loginButtonClicked:(UIButton *)sender {
+- (void)loginButtonClicked:(UIButton *)sender {
     if ([self verificationBeforeRequest]) {
         NSString *str = [NSString stringWithFormat:@"%@/login/login_telephone_ios/",TESTSERVER];
         // 请求参数
@@ -104,12 +104,12 @@
 }
 
 //验证码登录
-- (IBAction)codeButtonClicked:(UIButton *)sender {
+- (void)codeButtonClicked:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 //忘记密码
-- (IBAction)forgetPwdClick {
+- (void)forgetPwdClick {
     JZForgetPwdViewController *forgetVC = [[JZForgetPwdViewController alloc]init];
     [self.navigationController pushViewController:forgetVC animated:YES];
 }

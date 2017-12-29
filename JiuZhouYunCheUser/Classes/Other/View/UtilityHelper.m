@@ -37,27 +37,32 @@
     return isMatch;
 }
 
-//计算带行间距文字的高度
-+ (CGFloat)getHeightWithLableSpacing:(CGFloat)spacing Width:(CGFloat)width text:(NSString *)text fontSize:(CGFloat)fontSize numberOfLines:(NSInteger)numberOfLines
+//颜色值
++ (UIColor *) colorWithHexString: (NSString *) stringToConvert
 {
-    NSMutableParagraphStyle * newParagraph = [[NSMutableParagraphStyle alloc] init];
-    NSDictionary * attributeDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontSize],NSFontAttributeName,newParagraph,NSParagraphStyleAttributeName,nil];
-    CGSize newSize = [text boundingRectWithSize:CGSizeMake(width,fontSize*3) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:attributeDic context:nil].size;
-    if (newSize.height > fontSize*1.5) {
-        UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 10)];
-        NSMutableAttributedString *newAttText = [[NSMutableAttributedString alloc] initWithString:SFSTR(text)];
-        [newParagraph setLineSpacing:spacing];
-        [newAttText addAttribute:NSParagraphStyleAttributeName value:newParagraph range:NSMakeRange(0, [SFSTR(text) length])];
-        newLabel.attributedText = newAttText;
-        newLabel.font = [UIFont systemFontOfSize:fontSize];
-        newLabel.numberOfLines = numberOfLines;
-        [newLabel sizeToFit];
-        newSize = newLabel.frame.size;
-    }
+    NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
-    return newSize.height;
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    if ([cString hasPrefix:@"#"]) cString = [cString substringFromIndex:1];
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return CColor(r, g, b);
 }
-
 
 
 @end
