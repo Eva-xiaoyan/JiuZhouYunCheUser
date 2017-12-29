@@ -31,14 +31,14 @@
 //    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 //    if ([userDefaults objectForKey:@"username"]) {
         // 设置根控制器
-        self.window.rootViewController = [[JZTabBarController alloc] init];
+//        self.window.rootViewController = [[JZTabBarController alloc] init];
 //    }else if (![userDefaults boolForKey:@"notFirst"]){
 //        // 如果是第一次进入引导页
 //        self.window.rootViewController = [[JZGuidePageViewController alloc] init];
 //    }else{
 //        // 设置根控制器
-//        JZNavigationController *nav = [[JZNavigationController alloc]initWithRootViewController:[[JZRegisterViewController alloc] init]];
-//        self.window.rootViewController = nav;
+        JZNavigationController *nav = [[JZNavigationController alloc]initWithRootViewController:[[JZRegisterViewController alloc] init]];
+        self.window.rootViewController = nav;
 //    }
     
     // 显示窗口
