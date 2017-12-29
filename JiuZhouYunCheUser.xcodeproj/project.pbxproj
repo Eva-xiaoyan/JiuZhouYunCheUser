@@ -494,16 +494,16 @@
 			isa = PBXGroup;
 			children = (
 				9D0AD43C1FF630220069203C /* JZRegisterViewController.h */,
+				9D0AD4431FF630220069203C /* JZRegisterViewController.m */,
+				9D0AD4421FF630220069203C /* JZLoginViewController.h */,
 				9D0AD43D1FF630220069203C /* JZLoginViewController.m */,
+				9D0AD4401FF630220069203C /* JZForgetPwdViewController.h */,
+				9D0AD4461FF630220069203C /* JZForgetPwdViewController.m */,
+				9D0AD4451FF630220069203C /* JZSetNameViewController.h */,
+				9D0AD4411FF630220069203C /* JZSetNameViewController.m */,
 				9D0AD43E1FF630220069203C /* protocol.html */,
 				9D0AD43F1FF630220069203C /* ProtocolViewController.h */,
-				9D0AD4401FF630220069203C /* JZForgetPwdViewController.h */,
-				9D0AD4411FF630220069203C /* JZSetNameViewController.m */,
-				9D0AD4421FF630220069203C /* JZLoginViewController.h */,
-				9D0AD4431FF630220069203C /* JZRegisterViewController.m */,
 				9D0AD4441FF630220069203C /* ProtocolViewController.m */,
-				9D0AD4451FF630220069203C /* JZSetNameViewController.h */,
-				9D0AD4461FF630220069203C /* JZForgetPwdViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";

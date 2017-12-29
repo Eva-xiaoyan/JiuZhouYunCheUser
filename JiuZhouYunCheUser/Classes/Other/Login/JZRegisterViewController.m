@@ -232,7 +232,13 @@
     [self.view addSubview:thirdView];
     
     CGSize labelSize = [CFastAddsubView getWordRealSizeWithFont:[UIFont systemFontOfSize:12] WithConstrainedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) WithStr:@"其他方式登录"];
-    UILabel *label = [CFastAddsubView addLabelWithFrame:CGRectMake((thirdView.c_width - labelSize.width) / 2, 0, labelSize.width, labelSize.height) text:@"其他方式登录" textColor:@"#BEBEBE" textAlignment:NSTextAlignmentCenter fontSize:12 superView:thirdView];
+    UILabel *thirdLabel = [CFastAddsubView addLabelWithFrame:CGRectMake((thirdView.c_width - labelSize.width) / 2, 0, labelSize.width, labelSize.height) text:@"其他方式登录" textColor:@"#BEBEBE" textAlignment:NSTextAlignmentCenter fontSize:12 superView:thirdView];
+    [CFastAddsubView addLineWithRect:CGRectMake(SCREEN_SCALE(74), labelSize.height / 2, (SCREEN_WIDTH - labelSize.width)/2 - SCREEN_SCALE(88), 1) lineColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] SuperView:thirdView];
+    [CFastAddsubView addLineWithRect:CGRectMake( CGRectGetMaxX(thirdLabel.frame) + SCREEN_SCALE(14), labelSize.height / 2, 70, 1) lineColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] SuperView:thirdView];
+    
+//    UIButton *
+    
+    
     
     
     

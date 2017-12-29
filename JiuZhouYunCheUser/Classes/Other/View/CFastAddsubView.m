@@ -17,6 +17,14 @@
     [superView addSubview:lineV];
 }
 
+//画线
++(void)addLineWithRect:(CGRect)rect lineColor:(UIColor *)color SuperView:(UIView *)superView
+{
+    UIView *lineV = [[UIView alloc]initWithFrame:rect];
+    [lineV setBackgroundColor:color];
+    [superView addSubview:lineV];
+}
+
 #pragma mark - UITextField
 - (UITextField *)addTextField:(CGRect)frame placeholder:(NSString *)text font:(float)font superView:(UIView *)superView
 {

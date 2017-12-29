@@ -32,7 +32,9 @@
 
 ///计算不同字体的宽度
 + (CGSize)getWordRealSizeWithFont:(UIFont *)font WithConstrainedRect:(CGRect )constrainedRect WithStr:(NSString *)string;
+#pragma mark - UIView
 ///画线  行高 自行设置
-+(void)addLineViewRect:(CGFloat)height lineColor:(UIColor *)color SuperView:(UIView *)superView;
-
++ (void)addLineViewRect:(CGFloat)height lineColor:(UIColor *)color SuperView:(UIView *)superView;
+///画线 自行设置宽、高
++ (void)addLineWithRect:(CGRect)rect lineColor:(UIColor *)color SuperView:(UIView *)superView;
 @end
