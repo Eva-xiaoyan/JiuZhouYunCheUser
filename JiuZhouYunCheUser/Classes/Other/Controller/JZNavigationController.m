@@ -51,7 +51,7 @@
             viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
             
             //隐藏底部的工具条
-            viewController.hidesBottomBarWhenPushed = YES;
+//            viewController.hidesBottomBarWhenPushed = YES;
         }
         
     }

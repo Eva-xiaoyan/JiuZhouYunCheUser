@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188A3F751FFCA96000BF1272 /* JZSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A3F741FFCA96000BF1272 /* JZSettingViewController.m */; };
+		188A3F7B1FFCB6A400BF1272 /* JZSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A3F7A1FFCB6A400BF1272 /* JZSettingViewCell.m */; };
+		188A3F7E1FFCB85300BF1272 /* JZSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A3F7D1FFCB85300BF1272 /* JZSettingModel.m */; };
+		188A3F811FFCC7E300BF1272 /* JZSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A3F801FFCC7E300BF1272 /* JZSettingCell.m */; };
 		1896C0471FDA2A2500166F57 /* JZUserBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0461FDA2A2500166F57 /* JZUserBasicInfo.m */; };
 		1896C04A1FDA2A3A00166F57 /* UtilityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0481FDA2A3A00166F57 /* UtilityHelper.m */; };
 		1896C04D1FDA2F5900166F57 /* CHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1896C04C1FDA2F5900166F57 /* CHTTPSessionManager.m */; };
@@ -69,6 +73,14 @@
 
 /* Begin PBXFileReference section */
 		186ABA081FFB539800CD8ABF /* JZQuickImageRightButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZQuickImageRightButton.h; sourceTree = "<group>"; };
+		188A3F731FFCA96000BF1272 /* JZSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZSettingViewController.h; sourceTree = "<group>"; };
+		188A3F741FFCA96000BF1272 /* JZSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZSettingViewController.m; sourceTree = "<group>"; };
+		188A3F791FFCB6A400BF1272 /* JZSettingViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZSettingViewCell.h; sourceTree = "<group>"; };
+		188A3F7A1FFCB6A400BF1272 /* JZSettingViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZSettingViewCell.m; sourceTree = "<group>"; };
+		188A3F7C1FFCB85300BF1272 /* JZSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZSettingModel.h; sourceTree = "<group>"; };
+		188A3F7D1FFCB85300BF1272 /* JZSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZSettingModel.m; sourceTree = "<group>"; };
+		188A3F7F1FFCC7E300BF1272 /* JZSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZSettingCell.h; sourceTree = "<group>"; };
+		188A3F801FFCC7E300BF1272 /* JZSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZSettingCell.m; sourceTree = "<group>"; };
 		1896C0451FDA2A2500166F57 /* JZUserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZUserBasicInfo.h; sourceTree = "<group>"; };
 		1896C0461FDA2A2500166F57 /* JZUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZUserBasicInfo.m; sourceTree = "<group>"; };
 		1896C0481FDA2A3A00166F57 /* UtilityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityHelper.m; sourceTree = "<group>"; };
@@ -180,6 +192,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		188A3F6F1FFCA91700BF1272 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				188A3F701FFCA91700BF1272 /* Controller */,
+				188A3F711FFCA91700BF1272 /* Model */,
+				188A3F721FFCA91700BF1272 /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		188A3F701FFCA91700BF1272 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				188A3F731FFCA96000BF1272 /* JZSettingViewController.h */,
+				188A3F741FFCA96000BF1272 /* JZSettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		188A3F711FFCA91700BF1272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				188A3F7C1FFCB85300BF1272 /* JZSettingModel.h */,
+				188A3F7D1FFCB85300BF1272 /* JZSettingModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		188A3F721FFCA91700BF1272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				188A3F791FFCB6A400BF1272 /* JZSettingViewCell.h */,
+				188A3F7A1FFCB6A400BF1272 /* JZSettingViewCell.m */,
+				188A3F7F1FFCC7E300BF1272 /* JZSettingCell.h */,
+				188A3F801FFCC7E300BF1272 /* JZSettingCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18CC4BE81FD8ECC600155A33 = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				18CC4C441FD8F25600155A33 /* Search(查询) */,
+				188A3F6F1FFCA91700BF1272 /* Setting */,
 				18CC4C3C1FD8F25600155A33 /* Quote(报价) */,
 				18CC4C341FD8F25600155A33 /* Depart(发车) */,
 				18CC4C381FD8F25600155A33 /* Order(订单) */,
@@ -714,11 +766,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188A3F811FFCC7E300BF1272 /* JZSettingCell.m in Sources */,
 				18CC4C5E1FD920C700155A33 /* JZSearchViewController.m in Sources */,
 				9D0AD44A1FF630220069203C /* JZRegisterViewController.m in Sources */,
 				18CC4C541FD9087200155A33 /* NSString+Extension.m in Sources */,
 				18CC4C561FD9087200155A33 /* UIBarButtonItem+Extension.m in Sources */,
+				188A3F7E1FFCB85300BF1272 /* JZSettingModel.m in Sources */,
 				18CC4C611FD9216E00155A33 /* JZQuoteViewController.m in Sources */,
+				188A3F751FFCA96000BF1272 /* JZSettingViewController.m in Sources */,
 				1896C0501FDA328A00166F57 /* NSObject+Extension.m in Sources */,
 				9D0AD44B1FF630220069203C /* ProtocolViewController.m in Sources */,
 				18CC4C041FD8ECC700155A33 /* main.m in Sources */,
@@ -727,6 +782,7 @@
 				18CC4C491FD8F25600155A33 /* JZTabBarController.m in Sources */,
 				9D0AD44C1FF630220069203C /* JZForgetPwdViewController.m in Sources */,
 				18CC4C641FD9218600155A33 /* JZDepartViewController.m in Sources */,
+				188A3F7B1FFCB6A400BF1272 /* JZSettingViewCell.m in Sources */,
 				1896C04A1FDA2A3A00166F57 /* UtilityHelper.m in Sources */,
 				18CC4C671FD9219500155A33 /* JZOrderViewController.m in Sources */,
 				9D3111D61FF0992800A6521E /* JZGuidePageViewController.m in Sources */,
