@@ -20,10 +20,10 @@
 @interface JZLoginViewController ()
 
 @property (strong, nonatomic) UIButton *loginPasswordBtn;
+@property (strong, nonatomic) UIButton *forgetpwdButton;
 @property (strong, nonatomic) UITextField *phoneTextField;
 @property (strong, nonatomic) UITextField *pwdTextField;
-
-
+@property (strong, nonatomic) UIButton *codeLoginBtn;
 
 @property (nonatomic, strong) CHTTPSessionManager *manager;
 @property(nonatomic,strong)NSDictionary *dic;
@@ -42,11 +42,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = YES;
+    [self createViewFrame];
     [self setNotification];
     if (_phoneTextField.text.length == 0 && _pwdTextField.text.length == 0) {
         _loginPasswordBtn.enabled = NO;
     }
+    
 }
 
 #pragma mark - 通知
@@ -57,8 +60,57 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
+#pragma mark - 创建frame
+-(void)createViewFrame
+{
+    //图标
+    UIImageView *iconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logoIcon"]];
+    CGFloat iconX = (SCREEN_WIDTH - SCREEN_SCALE*88) / 2;
+    CGFloat iconY = SCREEN_SCALE*88;
+    CGFloat iconW = SCREEN_SCALE*88;
+    CGFloat iconH = iconW;
+    iconView.frame = CGRectMake(iconX, iconY, iconW, iconH);
+    [self.view addSubview:iconView];
+    //手机号View
+    UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SCALE*36, CGRectGetMaxY(iconView.frame)+SCREEN_SCALE*18, SCREEN_WIDTH - SCREEN_SCALE*36*2, SCREEN_SCALE*128)];
+    [self.view addSubview:backgroundView];
+    
+    //输入手机号
+    UIView *phoneView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, backgroundView.c_width, backgroundView.c_height / 2)];
+    [backgroundView addSubview:phoneView];
+    UITextField *phoneTextField = [CFastAddsubView addTextField:CGRectMake(0, phoneView.c_height - 36, phoneView.c_width, 30) font:15 placeholder:@"请输入手机号" placeholderColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] keyboardType:UIKeyboardTypeNumberPad borderStyle:UITextBorderStyleNone textAlignment:NSTextAlignmentLeft superView:phoneView];
+    self.phoneTextField = phoneTextField;
+    [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:phoneView];
+    
+    //输入验证码
+    UIView *codeView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(phoneView.frame), backgroundView.c_width, backgroundView.c_height / 2)];
+    [backgroundView addSubview:codeView];
+    self.pwdTextField = [CFastAddsubView addTextField:CGRectMake(0, phoneView.c_height - 36, phoneView.c_width - 110, 30) font:15 placeholder:@"请输入密码" placeholderColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] keyboardType:UIKeyboardTypeNumberPad borderStyle:UITextBorderStyleNone textAlignment:NSTextAlignmentLeft superView:codeView];
+    
+    self.forgetpwdButton = [CFastAddsubView addbuttonWithRect:CGRectMake(codeView.c_width - 100, codeView.c_height - 36, 100, 30) LabelText:@"忘记密码" TextFont:15 NormalTextColor:CColor(255, 147, 51) highLightTextColor:nil  disabledColor:CGrayColor(153) SuperView:codeView buttonTarget:self Action:@selector(forgetPwdClicked)];
+    
+    [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:codeView];
+    
+    //登录按钮
+    self.loginPasswordBtn =  [CFastAddsubView addButtonWithRect:CGRectMake(SCREEN_SCALE*36, CGRectGetMaxY(backgroundView.frame) + SCREEN_SCALE*36, self.view.c_width - SCREEN_SCALE*36*2, SCREEN_SCALE*46) NormalBackgroundImageName:@"btnBgNormal" andDisabledBackgroundImageName:@"btnBgEnabled" superView:self.view titleText:@"密码登录" titleFont:[UIFont systemFontOfSize:18] TitleNormalColor:[UIColor whiteColor] TitleHighLightColor:[UIColor whiteColor] buttonTarget:self Action:@selector(loginButtonClicked)];
+    self.loginPasswordBtn.layer.cornerRadius = iPhone5?20:23;
+    self.loginPasswordBtn.layer.masksToBounds = YES;
+
+    //返回验证码登录
+    CGSize pwdSize = [CFastAddsubView getWordRealSizeWithFont:[UIFont systemFontOfSize:15] WithConstrainedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) WithStr:@"验证码登录"];
+    
+    self.codeLoginBtn = [CFastAddsubView addbuttonWithRect:CGRectMake((self.view.c_width - pwdSize.width - 15) / 2, CGRectGetMaxY(self.loginPasswordBtn.frame) + SCREEN_SCALE*36, pwdSize.width + 17, pwdSize.height) LabelText:@"验证码登录" TextFont:15 NormalTextColor:[UtilityHelper colorWithHexString:@"#FF9333"] highLightTextColor:nil disabledColor:nil SuperView:self.view buttonTarget:self Action:@selector(codeButtonClicked)];
+    self.codeLoginBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    UIImageView *pushImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"push"]];
+    pushImage.frame = CGRectMake(pwdSize.width + 10, 0, 12, pwdSize.height);
+    [self.codeLoginBtn addSubview:pushImage];
+
+}
+
+
+
 //密码登录
-- (void)loginButtonClicked:(UIButton *)sender {
+- (void)loginButtonClicked{
     if ([self verificationBeforeRequest]) {
         NSString *str = [NSString stringWithFormat:@"%@/login/login_telephone_ios/",TESTSERVER];
         // 请求参数
@@ -104,12 +156,12 @@
 }
 
 //验证码登录
-- (void)codeButtonClicked:(UIButton *)sender {
+- (void)codeButtonClicked{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 //忘记密码
-- (void)forgetPwdClick {
+- (void)forgetPwdClicked{
     JZForgetPwdViewController *forgetVC = [[JZForgetPwdViewController alloc]init];
     [self.navigationController pushViewController:forgetVC animated:YES];
 }

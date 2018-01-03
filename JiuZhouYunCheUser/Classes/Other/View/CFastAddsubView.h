@@ -24,9 +24,13 @@
 + (UILabel *)addLabelWithFrame:(CGRect)frame text:(NSString *)text textColor:(NSString *)textColor textAlignment:(NSTextAlignment)textAlignment numberOfLines:(NSInteger)numberOfLines fontSize:(float)fonSize lineSpacing:(NSInteger)lineSpacing superView:(UIView *)superView;
 #pragma mark - button
 /// 带图片的button
-+ (UIButton *)addButtonWithRect:(CGRect)rect image:(NSString *)image highlightedImage:(NSString *)highlightedImage target:(id)target selector:(SEL)aSelector;
++ (UIButton *)addButtonWithRect:(CGRect)rect image:(NSString *)image highlightedImage:(NSString *)highlightedImage target:(id)target selector:(SEL)aSelector superView:(UIView *)superView;
 ///带文字button
 + (UIButton *)addbuttonWithRect:(CGRect)rect LabelText:(NSString *)text TextFont:(CGFloat)font NormalTextColor:(UIColor *)normalColor highLightTextColor:(UIColor *)highLightColor  disabledColor:(UIColor *)disabledColor SuperView:(UIView *)superView buttonTarget:(id)target Action:(SEL)action;
+/// 带 文字 背景图片 的button
++ (UIButton *)addButtonWithRect:(CGRect)buttonRect NormalBackgroundImageName:(NSString *)normal andDisabledBackgroundImageName:(NSString *)disabled superView:(UIView *)superView titleText:(NSString *)text titleFont:(UIFont *)font TitleNormalColor:(UIColor *)titleNMColor TitleHighLightColor:(UIColor *)titleHLColor buttonTarget:(id)target Action:(SEL)action;
+/// 带 文字 图片 的button
++ (UIButton *)addButtonWithRect:(CGRect)buttonRect NormalImageName:(NSString *)normal andSelectedImageName:(NSString *)selected ButtonTag:(NSInteger)buttonTag superView:(UIView *)superView titleText:(NSString *)text titleFont:(UIFont *)font TitleNormalColor:(UIColor *)titleNMColor TitleHighLightColor:(UIColor *)titleHLColor buttonTarget:(id)target Action:(SEL)action;
 /// 空白button
 + (UIButton *)addbuttonWithRect:(CGRect)rect SuperView:(UIView *)superView buttonTarget:(id)target Action:(SEL)action events:(UIControlEvents)event;
 

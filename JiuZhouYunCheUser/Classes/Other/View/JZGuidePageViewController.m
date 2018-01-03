@@ -52,6 +52,7 @@
             [imageView addSubview:skipBtn];
         }
         imageView.image = image;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         [scrollView addSubview:imageView];
     }
     scrollView.bounces = NO;

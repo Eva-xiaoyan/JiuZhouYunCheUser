@@ -99,13 +99,14 @@
 
 #pragma mark - button
 //带图片button
-+ (UIButton *)addButtonWithRect:(CGRect)rect image:(NSString *)image highlightedImage:(NSString *)highlightedImage target:(id)target selector:(SEL)aSelector
++ (UIButton *)addButtonWithRect:(CGRect)rect image:(NSString *)image highlightedImage:(NSString *)highlightedImage target:(id)target selector:(SEL)aSelector superView:(UIView *)superView
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = rect;
     [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:highlightedImage] forState:UIControlStateHighlighted];
     [button addTarget:target action:aSelector forControlEvents:UIControlEventTouchUpInside];
+    [superView addSubview:button];
     return button;
 }
 //带文字button
@@ -121,15 +122,35 @@
     return button;
 }
 //文字图片button  默认文字居左 NSLineBreakByTruncatingTail
-+ (UIButton *)addButtonWithRect:(CGRect)buttonRect NormalImageName:(NSString *)normal andSelectedImageName:(NSString *)selected ButtonTag:(NSInteger)buttonTag superView:(UIView *)superView    titleText:(NSString *)text titleFont:(UIFont *)font TitleNormalColor:(UIColor *)titleNMColor TitleHighLightColor:(UIColor *)titleHLColor buttonTarget:(id)target Action:(SEL)action{
-    UIButton * button=  [self addButtonWithRect:buttonRect image:normal highlightedImage:selected target:target selector:action];
++ (UIButton *)addButtonWithRect:(CGRect)buttonRect NormalImageName:(NSString *)normal andSelectedImageName:(NSString *)selected ButtonTag:(NSInteger)buttonTag superView:(UIView *)superView    titleText:(NSString *)text titleFont:(UIFont *)font TitleNormalColor:(UIColor *)titleNMColor TitleHighLightColor:(UIColor *)titleHLColor buttonTarget:(id)target Action:(SEL)action {
+    UIButton * button=  [self addButtonWithRect:buttonRect image:normal highlightedImage:selected target:target selector:action superView:superView];
+    [button setTitle:text forState:UIControlStateNormal];
+    button.titleLabel.font = font;
+    [button setTitleColor:titleNMColor forState:UIControlStateNormal];
+    [button setTitleColor:titleHLColor forState:UIControlStateHighlighted];
     [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [button setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
     [button setImage:[UIImage imageNamed:normal] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:selected] forState:UIControlStateHighlighted];
     button.titleLabel.textAlignment=NSTextAlignmentLeft;
-    button.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+   
     return (UIButton *)[superView viewWithTag:buttonTag];
+}
+//文字背景图片button  默认文字居中
++ (UIButton *)addButtonWithRect:(CGRect)buttonRect NormalBackgroundImageName:(NSString *)normal andDisabledBackgroundImageName:(NSString *)disabled superView:(UIView *)superView titleText:(NSString *)text titleFont:(UIFont *)font TitleNormalColor:(UIColor *)titleNMColor TitleHighLightColor:(UIColor *)titleHLColor buttonTarget:(id)target Action:(SEL)action{
+    UIButton * button=  [self addbuttonWithRect:buttonRect SuperView:superView buttonTarget:target Action:action events:UIControlEventTouchUpInside];
+//    [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+//    [button setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
+    [button setTitle:text forState:UIControlStateNormal];
+    button.titleLabel.font = font;
+    [button setTitleColor:titleNMColor forState:UIControlStateNormal];
+    [button setTitleColor:titleHLColor forState:UIControlStateHighlighted];
+    [button setBackgroundImage:[UIImage imageNamed:normal] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:disabled] forState:UIControlStateDisabled];
+    
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+//   / [superView addSubview:button];
+    return button;
 }
 
 //空白button
@@ -139,7 +160,6 @@
     [button addTarget:target action:action forControlEvents:event];
     [button setExclusiveTouch:YES];
     [superView addSubview:button];
-    
     return button;
 }
 

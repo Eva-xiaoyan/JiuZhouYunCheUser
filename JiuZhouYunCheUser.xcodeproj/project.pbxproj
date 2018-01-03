@@ -68,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		186ABA081FFB539800CD8ABF /* JZQuickImageRightButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZQuickImageRightButton.h; sourceTree = "<group>"; };
 		1896C0451FDA2A2500166F57 /* JZUserBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZUserBasicInfo.h; sourceTree = "<group>"; };
 		1896C0461FDA2A2500166F57 /* JZUserBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZUserBasicInfo.m; sourceTree = "<group>"; };
 		1896C0481FDA2A3A00166F57 /* UtilityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityHelper.m; sourceTree = "<group>"; };
@@ -257,6 +258,7 @@
 				1896C04C1FDA2F5900166F57 /* CHTTPSessionManager.m */,
 				9D3111D41FF0992800A6521E /* JZGuidePageViewController.h */,
 				9D3111D51FF0992800A6521E /* JZGuidePageViewController.m */,
+				186ABA081FFB539800CD8ABF /* JZQuickImageRightButton.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -927,7 +929,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hensghiwangluo.www.JiuZhouYunCheUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -961,7 +963,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hensghiwangluo.www.JiuZhouYunCheUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

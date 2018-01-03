@@ -21,7 +21,7 @@
 @property(nonatomic,strong)UIButton *codeButton;
 @property(nonatomic,strong)UIButton *codeLoginButton;
 @property(nonatomic,strong)UIButton *toWuliu;
-@property(nonatomic,strong)UIButton *pushToPwdLogin;
+@property(nonatomic,strong)UIButton *pwdLoginBtn;
 
 //第三方登录
 @property(nonatomic,strong)UIButton *wechatBtn;
@@ -57,21 +57,21 @@
 #pragma mark - 第三方登录
 -(void)setTheThirdLoginHiddenAndOtherSetting
 {
-    if(![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]) {
-        _wechatBtn.hidden = YES;
-    }
-    if(![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]]) {
-        _qqButton.hidden = YES;
-    }
-    if(![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ]
-       || ![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_Qzone]) {
-        _qqButton.hidden = YES;
-    }
-    if(_wechatBtn.isHidden && _qqButton.isHidden) {
-        _otherLoginView.hidden = YES;
-    }
-    [_wechatBtn addTarget:self action:@selector(wechatLoginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_qqButton addTarget:self action:@selector(qqLoginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    if(![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]) {
+//        _wechatBtn.hidden = YES;
+//    }
+//    if(![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]]) {
+//        _qqButton.hidden = YES;
+//    }
+//    if(![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_QQ]
+//       || ![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_Qzone]) {
+//        _qqButton.hidden = YES;
+//    }
+//    if(_wechatBtn.isHidden && _qqButton.isHidden) {
+//        _otherLoginView.hidden = YES;
+//    }
+//    [_wechatBtn addTarget:self action:@selector(wechatLoginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [_qqButton addTarget:self action:@selector(qqLoginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - 通知
@@ -192,14 +192,14 @@
 {
     //图标
     UIImageView *iconView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logoIcon"]];
-    CGFloat iconX = (SCREEN_WIDTH - SCREEN_SCALE(88)) / 2;
-    CGFloat iconY = SCREEN_SCALE(88);
-    CGFloat iconW = SCREEN_SCALE(88);
+    CGFloat iconX = (SCREEN_WIDTH - SCREEN_SCALE*88) / 2;
+    CGFloat iconY = SCREEN_SCALE*88;
+    CGFloat iconW = SCREEN_SCALE*88;
     CGFloat iconH = iconW;
     iconView.frame = CGRectMake(iconX, iconY, iconW, iconH);
     [self.view addSubview:iconView];
     //手机号View
-    UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SCALE(36), CGRectGetMaxY(iconView.frame)+SCREEN_SCALE(18), SCREEN_WIDTH - SCREEN_SCALE(36)*2, SCREEN_SCALE(128))];
+    UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SCALE*36, CGRectGetMaxY(iconView.frame)+SCREEN_SCALE*18, SCREEN_WIDTH - SCREEN_SCALE*36*2, SCREEN_SCALE*128)];
     [self.view addSubview:backgroundView];
     
     //输入手机号
@@ -218,30 +218,44 @@
     self.codeButton = codeButton;
     [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:codeView];
     
+    //登录按钮
+    self.codeLoginButton =  [CFastAddsubView addButtonWithRect:CGRectMake(SCREEN_SCALE*36, CGRectGetMaxY(backgroundView.frame) + SCREEN_SCALE*36, self.view.c_width - SCREEN_SCALE*36*2, SCREEN_SCALE*46) NormalBackgroundImageName:@"btnBgNormal" andDisabledBackgroundImageName:@"btnBgEnabled" superView:self.view titleText:@"验证码登录" titleFont:[UIFont systemFontOfSize:18] TitleNormalColor:[UIColor whiteColor] TitleHighLightColor:[UIColor whiteColor] buttonTarget:self Action:@selector(codeLoginButton)];
+    self.codeLoginButton.layer.cornerRadius = iPhone5?20:23;
+    self.codeLoginButton.layer.masksToBounds = YES;
     
+    //下载物流版的view
+    CGSize wuliuSize = [CFastAddsubView getWordRealSizeWithFont:[UIFont systemFontOfSize:font(14)] WithConstrainedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) WithStr:@"如果您是物流公司，想要接单，请 下载物流版"];
+    UIView *wuliuView = [[UIView alloc]initWithFrame:CGRectMake((self.view.c_width - wuliuSize.width) / 2, CGRectGetMaxY(_codeLoginButton.frame) + SCREEN_SCALE*18, wuliuSize.width, wuliuSize.height)];
+    [self.view addSubview:wuliuView];
     
+    CGSize wuliuLSize = [CFastAddsubView getWordRealSizeWithFont:[UIFont systemFontOfSize:font(14)] WithConstrainedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) WithStr:@"如果您是物流公司，想要接单，请 "];
+    [CFastAddsubView addLabelWithFrame:CGRectMake(0, 0, wuliuLSize.width, wuliuLSize.height) text:@"如果您是物流公司，想要接单，请 " textColor:@"#999999" textAlignment:NSTextAlignmentLeft fontSize:font(14) superView:wuliuView];
+    [CFastAddsubView addbuttonWithRect:CGRectMake(wuliuLSize.width, 0, wuliuView.c_width - wuliuLSize.width, wuliuView.c_height) LabelText:@"下载物流版" TextFont:font(14) NormalTextColor:[UtilityHelper colorWithHexString:@"#FF9333"] highLightTextColor:nil disabledColor:nil SuperView:wuliuView buttonTarget:self Action:@selector(gotoAppStore)];
     
+    //密码登录
+    CGSize pwdSize = [CFastAddsubView getWordRealSizeWithFont:[UIFont systemFontOfSize:15] WithConstrainedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) WithStr:@"密码登录"];
     
-    
-    
-    
+   self.pwdLoginBtn = [CFastAddsubView addbuttonWithRect:CGRectMake((self.view.c_width - pwdSize.width - 15) / 2, CGRectGetMaxY(wuliuView.frame) + SCREEN_SCALE*36, pwdSize.width + 17, pwdSize.height) LabelText:@"密码登录" TextFont:15 NormalTextColor:[UtilityHelper colorWithHexString:@"#FF9333"] highLightTextColor:nil disabledColor:nil SuperView:self.view buttonTarget:self Action:@selector(pwdLoginClick)];
+    self.pwdLoginBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    UIImageView *pushImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"push"]];
+    pushImage.frame = CGRectMake(pwdSize.width + 10, 0, 12, pwdSize.height);
+    [self.pwdLoginBtn addSubview:pushImage];
     
     //第三方登录
-    CGFloat thridViewY = self.view.c_height - SCREEN_SCALE(46) - SCREEN_SCALE(75);
-    UIView *thirdView = [[UIView alloc]initWithFrame:CGRectMake(0, thridViewY, self.view.c_width, SCREEN_SCALE(75))];
+    CGFloat thridViewY = self.view.c_height - SCREEN_SCALE*46 - SCREEN_SCALE*75;
+    UIView *thirdView = [[UIView alloc]initWithFrame:CGRectMake(0, thridViewY, self.view.c_width, SCREEN_SCALE*75)];
     [self.view addSubview:thirdView];
     
     CGSize labelSize = [CFastAddsubView getWordRealSizeWithFont:[UIFont systemFontOfSize:12] WithConstrainedRect:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) WithStr:@"其他方式登录"];
     UILabel *thirdLabel = [CFastAddsubView addLabelWithFrame:CGRectMake((thirdView.c_width - labelSize.width) / 2, 0, labelSize.width, labelSize.height) text:@"其他方式登录" textColor:@"#BEBEBE" textAlignment:NSTextAlignmentCenter fontSize:12 superView:thirdView];
-    [CFastAddsubView addLineWithRect:CGRectMake(SCREEN_SCALE(74), labelSize.height / 2, (SCREEN_WIDTH - labelSize.width)/2 - SCREEN_SCALE(88), 1) lineColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] SuperView:thirdView];
-    [CFastAddsubView addLineWithRect:CGRectMake( CGRectGetMaxX(thirdLabel.frame) + SCREEN_SCALE(14), labelSize.height / 2, 70, 1) lineColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] SuperView:thirdView];
+    [CFastAddsubView addLineWithRect:CGRectMake(SCREEN_SCALE*74, labelSize.height / 2, (SCREEN_WIDTH - labelSize.width)/2 - SCREEN_SCALE*88, 1) lineColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] SuperView:thirdView];
+    [CFastAddsubView addLineWithRect:CGRectMake( CGRectGetMaxX(thirdLabel.frame) + SCREEN_SCALE*14, labelSize.height / 2, 70, 1) lineColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] SuperView:thirdView];
     
-//    UIButton *
-    
-    
-    
-    
-    
+    UIButton *wechatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    wechatBtn = [CFastAddsubView addButtonWithRect:CGRectMake(thirdView.c_width / 2 - SCREEN_SCALE*71, thirdView.c_height - SCREEN_SCALE*42, SCREEN_SCALE*42, SCREEN_SCALE*42) image:@"wechat" highlightedImage:nil target:self selector:@selector(wechatLoginButtonClicked:) superView:thirdView];
+    self.wechatBtn = wechatBtn;
+    UIButton *qqButton = [CFastAddsubView addButtonWithRect:CGRectMake(thirdView.c_width / 2 + SCREEN_SCALE*29, thirdView.c_height - SCREEN_SCALE*42, SCREEN_SCALE*42, SCREEN_SCALE*42) image:@"QQ" highlightedImage:nil target:self selector:@selector(qqLoginButtonClicked:) superView:thirdView];
+    self.qqButton = qqButton;
     
     
 }
@@ -370,9 +384,6 @@
     [self.view endEditing:YES];
 }
 
-
-
-
 //下载客户端
 - (void)gotoAppStore {
     NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/%E4%B9%9D%E5%B7%9E%E8%BF%90%E8%BD%A6%E7%89%A9%E6%B5%81%E7%89%88/id1318609107?mt=8"];
@@ -385,7 +396,6 @@
     [self.navigationController pushViewController:loginVC animated:YES];
 }
 
-
 //移除通知
 -(void)dealloc
 {
@@ -393,6 +403,7 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

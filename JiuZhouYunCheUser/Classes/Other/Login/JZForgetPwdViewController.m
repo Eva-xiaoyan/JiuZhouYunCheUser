@@ -19,7 +19,7 @@
 @property (strong, nonatomic) UITextField *codeTextField;
 
 @property (strong, nonatomic) UITextField *pwdTextField;
-@property (strong, nonatomic) UIButton *getCodeBtn;
+@property (strong, nonatomic) UIButton *codeBtn;
 @property (strong, nonatomic) UIButton *finishBtn;
 
 @property (nonatomic, strong) CHTTPSessionManager *manager;
@@ -33,9 +33,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = YES;
+    [self createViewFrame];
     [self setNotificationShow];
     [self otherSetting];
+   
 }
 
 #pragma mark - 通知和其他设置
@@ -51,7 +54,7 @@
 {
     
     if (_phoneTextField.text.length == 0) {
-        _getCodeBtn.enabled = NO;
+        _codeBtn.enabled = NO;
     }
     if (_phoneTextField.text.length == 0 && _codeTextField.text.length == 0 && _pwdTextField.text.length == 0) {
         _finishBtn.enabled = NO;
@@ -80,13 +83,51 @@
 //改变字符
 -(void)textFieldDidChange
 {
-    self.getCodeBtn.enabled = (self.phoneTextField.text.length != 0);
+    self.codeBtn.enabled = (self.phoneTextField.text.length != 0);
     self.finishBtn.enabled = (self.phoneTextField.text.length != 0 && self.codeTextField.text.length != 0 && self.pwdTextField.text.length != 0);
 }
 
 
 - (void)back {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+-(void)createViewFrame
+{
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT + 16, self.view.c_width, 20)];
+    [self.view addSubview:topView];
+    [CFastAddsubView addLabelWithFrame:CGRectMake((topView.c_width - 100) / 2, 0, 100, 20) text:@"找回密码" textColor:@"#000000" textAlignment:NSTextAlignmentCenter fontSize:18 superView:topView];
+    UIButton *backBtn = [CFastAddsubView addButtonWithRect:CGRectMake(0, 0, 30, topView.c_height) image:@"back" highlightedImage:nil target:self selector:@selector(back) superView:topView];
+    backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 18, 0, 0);
+    
+    //手机号View
+    UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SCALE*36, CGRectGetMaxY(topView.frame)+SCREEN_SCALE*36, SCREEN_WIDTH - SCREEN_SCALE*36*2, SCREEN_SCALE*192)];
+    [self.view addSubview:backgroundView];
+    //输入手机号
+    UIView *phoneView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, backgroundView.c_width, backgroundView.c_height / 3)];
+    [backgroundView addSubview:phoneView];
+    self.phoneTextField = [CFastAddsubView addTextField:CGRectMake(0, phoneView.c_height - 36, phoneView.c_width, 30) font:15 placeholder:@"请输入手机号" placeholderColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] keyboardType:UIKeyboardTypeNumberPad borderStyle:UITextBorderStyleNone textAlignment:NSTextAlignmentLeft superView:phoneView];
+    [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:phoneView];
+
+    //输入验证码
+    UIView *codeView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(phoneView.frame), backgroundView.c_width, backgroundView.c_height / 3)];
+    [backgroundView addSubview:codeView];
+    self.codeTextField = [CFastAddsubView addTextField:CGRectMake(0, phoneView.c_height - 36, phoneView.c_width - 110, 30) font:15 placeholder:@"请输入验证码" placeholderColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] keyboardType:UIKeyboardTypeNumberPad borderStyle:UITextBorderStyleNone textAlignment:NSTextAlignmentLeft superView:codeView];
+    self.codeBtn = [CFastAddsubView addbuttonWithRect:CGRectMake(codeView.c_width - 100, codeView.c_height - 36, 100, 30) LabelText:@"获取验证码" TextFont:15 NormalTextColor:CColor(255, 147, 51) highLightTextColor:nil  disabledColor:CGrayColor(153) SuperView:codeView buttonTarget:self Action:@selector(getCodeClick:)];
+    [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:codeView];
+    
+    //设置密码
+    UIView *pwdView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(codeView.frame), backgroundView.c_width, backgroundView.c_height / 3)];
+    [backgroundView addSubview:pwdView];
+    self.phoneTextField = [CFastAddsubView addTextField:CGRectMake(0, phoneView.c_height - 36, phoneView.c_width, 30) font:15 placeholder:@"请输入密码" placeholderColor:[UtilityHelper colorWithHexString:@"#BEBEBE"] keyboardType:UIKeyboardTypeNumberPad borderStyle:UITextBorderStyleNone textAlignment:NSTextAlignmentLeft superView:pwdView];
+    [CFastAddsubView addLineViewRect:1 lineColor:[UtilityHelper colorWithHexString:@"#E3E3E3"] SuperView:pwdView];
+
+    //登录按钮
+    self.finishBtn =  [CFastAddsubView addButtonWithRect:CGRectMake(SCREEN_SCALE*36, CGRectGetMaxY(backgroundView.frame) + SCREEN_SCALE*36, self.view.c_width - SCREEN_SCALE*36*2, SCREEN_SCALE*46) NormalBackgroundImageName:@"btnBgNormal" andDisabledBackgroundImageName:@"btnBgEnabled" superView:self.view titleText:@"完  成" titleFont:[UIFont systemFontOfSize:18] TitleNormalColor:[UIColor whiteColor] TitleHighLightColor:[UIColor whiteColor] buttonTarget:self Action:@selector(finishBtnClick:)];
+    self.finishBtn.layer.cornerRadius = iPhone5?20:23;
+    self.finishBtn.layer.masksToBounds = YES;
+    
 }
 
 //获取验证码
@@ -127,12 +168,12 @@
 {
     if (self.countFlag>1) {
         self.countFlag--;
-        self.getCodeBtn.userInteractionEnabled = NO;
-        [self.getCodeBtn setTitle:[NSString stringWithFormat:@"重新发送(%d)",self.countFlag] forState:UIControlStateNormal];
+        self.codeBtn.userInteractionEnabled = NO;
+        [self.codeBtn setTitle:[NSString stringWithFormat:@"重新发送(%d)",self.countFlag] forState:UIControlStateNormal];
     }else{
         [self.timer invalidate];
-        self.getCodeBtn.userInteractionEnabled = YES;
-        [self.getCodeBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
+        self.codeBtn.userInteractionEnabled = YES;
+        [self.codeBtn setTitle:@"重发验证码" forState:UIControlStateNormal];
     }
 }
 
